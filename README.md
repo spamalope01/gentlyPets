@@ -1,0 +1,1 @@
+#Initial commit, creating the README.  This will be a personal project to showcase my portfolio.  The pupose of this site is to allow users to search and select a senior or special needs pet for adoption.

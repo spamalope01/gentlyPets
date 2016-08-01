@@ -16,15 +16,66 @@
           <li><a href="#">Search</a></li>
           <li><a href="#">Random Pet</a></li>
         </ul>
+        <img id="logo" src="Images/Logo.png" alt="" />
         <ul>
           <li><a href="#">Resources</a></li>
           <li><a href="#">Favorites</a></li>
         </ul>
       </nav>
-      <!-- nav here -->
     </header>
     <main>
-      <section id="search"></section>
+      <section id="search">
+        <div class="searchContainer">
+          <h2>I'm looking for a...</h2>
+          <form class="searchForm" action="index.html" method="post">
+            <input type="button" name="dog" value="Dog">
+            <input type="button" name="cat" value="Cat">
+            <input type="button" name="reptile" value="Reptile">
+            <input type="button" name="smallFurry" value="Small &amp Furry">
+          </form>
+          <h2>And I live in...</h2>
+          <form class="zipForm" action="index.html" method="post">
+            <input id="zipFind" type="text" name="name" value="" placeholder="zipcode" required>
+            <input class="findPetBtn" type="button" name="findIt" value="Search">
+          </form>
+        </div>
+
+      <section id="numResults" class="searchSection">
+        <div id="initialFinds">
+          <h2>We found</h2>
+          <h2 id="numMatches"></h2>
+          <h2>potential matches for you!</h2>
+          <h2>Next we'll filter down some of those results to find the best match for you.</h2>
+          <button id='filterButton'>OK</button>
+        </div>
+      </section>
+
+      <section id="filterOptions" class="searchSection">
+        <div id="filterResultsWrapper">
+          <h2>I would like a new pet who is...</h2>
+          <p>Please try to limit your criteria to 3 options for best results!</p>
+          <input type="checkbox" id='seniorCheckbox' value="Senior"><span class='page-text'>Senior</span></input>
+          <input type="checkbox" id='specialCheckbox' value="specialNeeds"><span class='page-text'>Special Needs</span></input>
+          <select id="petLargeness" class="" name="">
+            <option value="Size of Pet">Size Of Pet</option>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+          </select>
+        <form>
+          <div id="gender">
+            <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
+            <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
+        </form>
+        <button type="button" id='showButton' name="showMe">Show Me My Matches</button>
+        <h3 id='noMatches'></h3>
+      </div>
+    </div>
+    </section>
+
+      </section>
+
+      </section>
 
       <section id="random">
 

@@ -2,3 +2,5 @@
 node_modules/
 apiToken.json
 key.json
+apiKey.js
+LICENSE

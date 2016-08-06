@@ -1,0 +1,22 @@
+{
+  "name": "gently_used_pets",
+  "version": "1.0.0",
+  "description": "Web application to help people find senior and special needs pets for adoption.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spamalope01/gentlyPets.git"
+  },
+  "author": "Jonathan Daniel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spamalope01/gentlyPets/issues"
+  },
+  "dependencies": {
+    "express": "~4.14.0"
+  }
+}

@@ -3,11 +3,39 @@
   <head>
     <meta charset="utf-8">
     <title>Gently Used Pets</title>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
-    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="Styles/normalize.css">
     <link rel="stylesheet" href="Styles/base.css">
     <link rel="stylesheet" href="Styles/module.css">
     <link rel="stylesheet" href="Styles/layout.css">
+    <!-- handlebars template for results after filtering -->
+    <script id="search-result" type="text/x-handlebars-template">
+      <div class='pet-summary-element'>
+        <img src={{{media.photos.photo.0.$t}}} />
+        <h1>{{name.$t}}</h1>
+        <h3>Breed: {{breeds.breed.$t}}</h3>
+        <h3>Gender: {{sex.$t}}</h3>
+        <h4>Pet ID: {{id.$t}}</h3>
+        <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
+        <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
+        <hr/>
+      </div>
+    </script>
+
+    <!-- handlebars template for random pets when landing is in desktop -->
+    <script id="landingRandom" type="text/x-handlebars-template">
+      <div class='pet-summary-element'>
+        <img src={{{media.photos.photo.0.$t}}} />
+        <h1>{{name.$t}}</h1>
+        <h3>Breed: {{breed.$t}}</h3>
+        <h3>Gender: {{sex.$t}}</h3>
+        <h3>Pet ID: {{id.$t}}</h3>
+        <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
+        <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
+        <hr/>
+      </div>
+    </script>
   </head>
   <body>
     <header>
@@ -16,7 +44,7 @@
           <li><a href="#">Search</a></li>
           <li><a href="#">Random Pet</a></li>
         </ul>
-        <img id="logo" src="Images/Logo.png" alt="" />
+        <!-- <img id="logo" src="Images/Logo.png" alt="" /> -->
         <ul>
           <li><a href="#">Resources</a></li>
           <li><a href="#">Favorites</a></li>
@@ -28,10 +56,10 @@
         <div class="searchContainer">
           <h2>I'm looking for a...</h2>
           <form class="searchForm" action="index.html" method="post">
-            <input type="button" name="dog" value="Dog">
-            <input type="button" name="cat" value="Cat">
-            <input type="button" name="reptile" value="Reptile">
-            <input type="button" name="smallFurry" value="Small &amp Furry">
+            <input class="searchPetButton" type="button" name="dog" value="Dog">
+            <input class="searchPetButton" type="button" name="cat" value="Cat">
+            <input class="searchPetButton" type="button" name="reptile" value="Reptile">
+            <input class="searchPetButton" type="button" name="smallFurry" value="Small &amp Furry">
           </form>
           <h2>And I live in...</h2>
           <form class="zipForm" action="index.html" method="post">
@@ -53,7 +81,7 @@
       <section id="filterOptions" class="searchSection">
         <div id="filterResultsWrapper">
           <h2>I would like a new pet who is...</h2>
-          <p>Please try to limit your criteria to 3 options for best results!</p>
+          <p>Please try to limit your criteria to 3 options for best results</p>
           <input type="checkbox" id='seniorCheckbox' value="Senior"><span class='page-text'>Senior</span></input>
           <input type="checkbox" id='specialCheckbox' value="specialNeeds"><span class='page-text'>Special Needs</span></input>
           <select id="petLargeness" class="" name="">
@@ -62,20 +90,21 @@
             <option value="M">Medium</option>
             <option value="L">Large</option>
           </select>
-        <form>
-          <div id="gender">
-            <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
-            <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
-        </form>
-        <button type="button" id='showButton' name="showMe">Show Me My Matches</button>
-        <h3 id='noMatches'></h3>
-      </div>
-    </div>
-    </section>
+          <form>
+            <div id="gender">
+              <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
+              <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
+            </div>
+            </form>
+            <button type="button" id='showButton' name="showMe">Show Me My Matches</button>
+            <h3 id='noMatches'></h3>
+        </div>
+      </section>
+
+      <section id="matches" class="searchSection">
 
       </section>
 
-      </section>
 
       <section id="random">
 
@@ -96,6 +125,6 @@
       <footer></footer>
     </main>
   </body>
-  <script src="Scripts/app.js"></script>
   <script src="Scripts/randomPet.js"></script>
+  <script src="Scripts/app.js"></script>
 </html>

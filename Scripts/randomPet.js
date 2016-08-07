@@ -12,7 +12,7 @@
     console.log(randomPets.all);
     randomPets.displayRandom();
   }).fail(function(err)
-  { alert('Error retrieving data!');
+  { console.error('Error retrieving data!');
   });
   };
 
@@ -22,16 +22,16 @@
       var source   = $("#landingRandom").html();
       var template = Handlebars.compile(source);
       var html    = template(e);
-      $('#randomResultsWrapper').append(html);
+      $('#random').append(html);
     });
-  }
+  };
 
 
 
-$(document).ready(function() {
+  $(document).ready(function() {
 
-  randomPets.getRandom();
-});
+    randomPets.getRandom();
+  });
 
-module.pets = randomPets;
+  module.pets = randomPets;
 })(window);

@@ -179,6 +179,8 @@
           return pets.isSexPet(pet);
         });
         pets.noMatch();
+        $('#matches').show();
+        pets.displayMatches();
       } else {
         console.log('you have to pick something');
       }
@@ -187,11 +189,13 @@
 
   pets.displayMatches = function() {
     pets.filtered.forEach(function(e){
-      var source = $('#matches').html();
+      var source = $('#search-result').html();
       var template = Handlebars.compile(source);
       var html = template(e);
-      $('#narrowResultsWrapper').append(html);
+      $('#matches').append(html);
     });
+    $('.searchSection').hide();
+    $('#random').hide();
   };
 
   pets.displayFullPetDetails = function(pet) {

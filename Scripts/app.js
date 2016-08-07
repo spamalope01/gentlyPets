@@ -80,7 +80,9 @@
 
 
   pets.requestPets = function(zip, animal) {
-    $.getJSON('https://api.petfinder.com/pet.find?format=json&key=27a2c7e0bbe5865550c5d3f56cb80623&location=98012&animal=dog&count=100&output=full&callback=?')
+    console.log('zip is' + zip);
+    console.log('animal is' + animal);
+    $.getJSON('https://api.petfinder.com/pet.find?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&location=' + zip + '&animal=' + animal + '&count=100&output=full&callback=?')
   .done(function(petApiData) {
     pets.all = [];
     pets.all = petApiData.petfinder.pets.pet;
@@ -110,27 +112,41 @@
   };
 
   pets.numberReturned = function() {
+    $('#numResults').show();
     $('#numMatches').html(pets.all.length);
+    pets.showFilters();
+  };
+
+  pets.showFilters = function() {
+    $('#filterButton').off().on('click', function(e){
+      e.preventDefault();
+      $('#numResults').hide();
+      $('#filterOptions').show();
+    });
   };
 
   pets.snr_spl = function() {
-    $('#input-snr-cb').off().on('click', function(){
+    $('#seniorCheckbox').off().on('click', function(){
       pets.$seniorPet = this.value;
+      console.log("senior =" + pets.$seniorPet);
     });
-    $('#input-spl-cb').off().on('click', function(){
+    $('#specialCheckbox').off().on('click', function(){
       pets.$specialPet = this.value;
+      console.log("sepcial =" + pets.$specialPet);
     });
   };
 
   pets.howBig = function() {
     $('#petLargeness').off().on('change', function(){
       pets.$petSize = this.value;
+      console.log("size =" + pets.$petSize);
     });
   };
 
   pets.assignedGender = function() {
     $('.sexRadio').off().on('click', function(){
       pets.$petSex = this.value;
+      console.log("size =" + pets.$petSex);
     });
   };
 
@@ -146,7 +162,7 @@
 
 
   pets.pareDown = function() {
-    $('#show-me-btn').off().on('click', function(){
+    $('#showButton').off().on('click', function(){
       console.log('running pareDown');
       if (pets.$seniorPet || pets.$specialPet) {
         pets.filtered = pets.all
@@ -171,9 +187,9 @@
 
   pets.displayMatches = function() {
     pets.filtered.forEach(function(e){
-      var source   = $('#search-result').html();
+      var source = $('#matches').html();
       var template = Handlebars.compile(source);
-      var html    = template(e);
+      var html = template(e);
       $('#narrowResultsWrapper').append(html);
     });
   };

@@ -1,0 +1,31 @@
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 60px;
+}
+
+nav li a {
+  display: inline;
+}
+
+
+#search {
+  height: 50em;
+  border: 1px solid black;
+  background-image: url('../Images/seniorDogRight.jpg');
+  background-size:cover;
+  background-position: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.searchSection {
+  z-index: 9;
+  margin-left: 20em;
+  color: white;
+  border: 1px solid white;
+  width: 60em;
+  background:rgba(0,0,0,0.5);
+}

@@ -218,6 +218,7 @@
 
   $(document).ready(function() {
     $('.searchSection').hide();
+    $('.searchContainer').show();
     pets.animal_wanted_click();
     pets.searchClick();
     pets.snr_spl();

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="Styles/base.css">
     <link rel="stylesheet" href="Styles/module.css">
     <link rel="stylesheet" href="Styles/layout.css">
+    <link rel="stylesheet" href="Styles/icons.css">
     <!-- handlebars template for results after filtering -->
     <script id="search-result" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
@@ -40,6 +41,7 @@
   <body>
     <header>
       <nav>
+        <div class="icon-menu"></div>
         <ul>
           <li><a href="#">Search</a></li>
           <li><a href="#">Random Pet</a></li>
@@ -53,7 +55,7 @@
     </header>
     <main>
       <section id="search">
-        <div class="searchContainer">
+        <div class="searchContainer searchSection">
           <h2>I'm looking for a...</h2>
           <form class="searchForm" action="index.html" method="post">
             <button class="searchPetButton" type="button" name="Dog" value="dog">Dog</button>
@@ -99,6 +101,7 @@
             <button type="button" id='showButton' name="showMe">Show Me My Matches</button>
         </div>
       </section>
+    </section>  <!--end search section -->
 
       <section id="matches" class="searchSection">
         <h3 id="noMatches"></h3>

@@ -1,4 +1,39 @@
+/* Header and Nav */
+
 #logo {
   height: 50px;
   width: 50px;
 }
+
+
+/* Footer */
+
+
+/* Desktop */
+  @media only screen and (min-width: 691px) {
+    .pet-summary-element {
+      display: inline-block;
+      margin: 2em 2em;
+      /*height: auto;*/
+      border: 1px solid black;
+      width: 20em;
+      background-color: grey;
+    }
+
+    .pet-summary-element img {
+      margin-top: .5em;
+      height: 100px;
+      width: 100px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+  }

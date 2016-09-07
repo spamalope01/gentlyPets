@@ -216,10 +216,15 @@
     pets.displayFullPetDetails(pets.selectedPet);
   };
 
+  pets.equalHeights = function(){
+    $('.pet-summary-element').matchHeight();
+  };
+
   $(document).ready(function() {
     $('.searchSection').hide();
     $('.searchContainer').show();
-    $('.pet-summary-element').equalHeights();
+    pets.equalHeights();
+    // $('.pet-summary-element').equalHeights();
     pets.animal_wanted_click();
     pets.searchClick();
     pets.snr_spl();

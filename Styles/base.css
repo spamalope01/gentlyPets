@@ -1,15 +1,15 @@
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 60px;
+header {
+  background-color: grey;
 }
 
-nav li a {
-  display: inline;
+#random {
+  background-color: grey;
 }
 
-
+#resources {
+  background-color: #ADD8E6;
+}
+  
 #search {
   height: 50em;
   border: 1px solid black;

@@ -7,13 +7,13 @@
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <link rel="stylesheet" href="Styles/normalize.css">
     <link rel="stylesheet" href="Styles/base.css">
-    <link rel="stylesheet" href="Styles/module.css">
     <link rel="stylesheet" href="Styles/layout.css">
+    <link rel="stylesheet" href="Styles/module.css">
     <link rel="stylesheet" href="Styles/icons.css">
     <!-- handlebars template for results after filtering -->
     <script id="search-result" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
-        <img src={{{media.photos.photo.0.$t}}} />
+        <img src={{{media.photos.photo.1.$t}}} />
         <h1>{{name.$t}}</h1>
         <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
@@ -42,14 +42,12 @@
     <header>
       <nav>
         <div class="icon-menu"></div>
-        <ul>
-          <li><a href="#">Search</a></li>
-          <li><a href="#">Random Pet</a></li>
-        </ul>
-        <!-- <img id="logo" src="Images/Logo.png" alt="" /> -->
-        <ul>
-          <li><a href="#">Resources</a></li>
-          <li><a href="#">Favorites</a></li>
+        <ul class="globalNav">
+          <li><a href="#search">Search</a></li>
+          <li><a href="#random">Random Pet</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#favorites">Favorites</a></li>
+          <li><a href="#vet">Find a Vet</a></li>
         </ul>
       </nav>
     </header>

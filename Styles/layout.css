@@ -1,39 +1,59 @@
-/* Header and Nav */
+/* Desktop Views */
+@media only screen and (min-width: 691px) {
 
-#logo {
-  height: 50px;
-  width: 50px;
+.icon-menu {
+display: none;
+}
+
+nav {
+width: 100%
+}
+.globalNav {
+border:1px solid #ccc;
+  border-width:1px 0;
+  list-style:none;
+  margin:0;
+  padding:0;
+  text-align:center;
 }
 
 
-/* Footer */
+.globalNav li {
+margin: 0 auto;
+display: inline;
+font-size: 1.5em;
+text-decoration: none;
+height: 10%;
+}
+
+.globalNav li a {
+display: inline-block;
+padding: 0.625em;
+}
+
+.pet-summary-element {
+  display: inline-block;
+  margin: 2em 2em;
+  /*height: auto;*/
+  border: 1px solid black;
+  width: 20em;
+  background-color: grey;
+}
+
+.pet-summary-element img {
+  margin-top: .5em;
+  height: 100px;
+  width: 100px;
+}
+
+}
 
 
-/* Desktop */
-  @media only screen and (min-width: 691px) {
-    .pet-summary-element {
-      display: inline-block;
-      margin: 2em 2em;
-      /*height: auto;*/
-      border: 1px solid black;
-      width: 20em;
-      background-color: grey;
+
+  /*Tablet View (Nav links use less padding)*/
+  /*@media only screen and (min-width: 692px) and (max-width: 800px) {
+    .globalNav li {
+      margin-left: 0%;
+      margin-right: -1%;
     }
-
-    .pet-summary-element img {
-      margin-top: .5em;
-      height: 100px;
-      width: 100px;
-    }
-
-
-
-
-
-
-
-
-
-
-
-  }
+  }*/

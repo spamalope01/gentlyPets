@@ -9,7 +9,19 @@ header {
 #resources {
   background-color: #ADD8E6;
 }
-  
+
+button {
+  border-radius: 5px;
+  color: black;
+  background-color: green;
+}
+
+input[type=button] {
+  border-radius: 5px;
+  color: black;
+  background-color: green;
+}
+
 #search {
   height: 50em;
   border: 1px solid black;
@@ -23,9 +35,23 @@ header {
 
 .searchSection {
   z-index: 9;
-  margin-left: 20em;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
   color: white;
   border: 1px solid white;
-  width: 60em;
+  width: 55em;
   background:rgba(0,0,0,0.5);
+}
+
+.searchSection h2 {
+  text-align: center;
+}
+
+.searchSection form {
+  text-align: center;
+}
+
+.zipForm {
+  margin-bottom: 2em;
 }

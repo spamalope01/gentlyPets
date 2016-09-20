@@ -47,6 +47,18 @@ padding: 0.625em;
   width: 100px;
 }
 
+#resources {
+  text-align: center;
+}
+
+#resources a {
+  display: block;
+}
+
+#vet {
+  text-align: center;
+}
+
 }
 
 

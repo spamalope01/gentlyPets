@@ -40,14 +40,15 @@
   </head>
   <body>
     <header>
+      <a name="top"></a>
       <nav>
         <div class="icon-menu"></div>
         <ul class="globalNav">
-          <li><a href="#search">Search</a></li>
-          <li><a href="#random">Random Pet</a></li>
-          <li><a href="#resources">Resources</a></li>
-          <li><a href="#favorites">Favorites</a></li>
-          <li><a href="#vet">Find a Vet</a></li>
+          <li><a href="#search" class="smoothScroll">Search</a></li>
+          <li><a href="#random" class="smoothScroll">Random Pet</a></li>
+          <li><a href="#resources" class="smoothScroll">Resources</a></li>
+          <li><a href="#favorites" class="smoothScroll">Favorites</a></li>
+          <li><a href="#vet" class="smoothScroll">Find a Vet</a></li>
         </ul>
       </nav>
     </header>
@@ -109,7 +110,7 @@
 
       <section id="random">
         <h2>Here are some of our favorite pets just waiting on furever homes.</h2>
-        <p class="backToTop">Back to Top</p>
+        <a href="#top" class="smoothScroll">Back to top</a>
       </section>
 
       <section id="resources">
@@ -131,11 +132,11 @@
         <a href="http://hpets.org/">hpets.org</a>
         <a href="http://www.k9carts.com/">k9carts.com</a>
         <a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a>
-        <p class="backToTop">Back to Top</p>
+        <a href="#top" class="smoothScroll">Back to top</a>
       </section>
 
       <section id="favorites" class="favePets">
-        <p class="backToTop">Back to Top</p>
+        <a href="#top">Back to top</a>
       </section>
 
       <section id="vet" class="vetFinder">
@@ -144,12 +145,13 @@
           <input id="vetZip" type="text" name="name" value="" placeholder="Your Zipcode" required>
           <input class="findVetButton" type="button" name="findVet" value="Search">
         </form>
-        <p class="backToTop">Back to Top</p>
+        <a href="#top" class="smoothScroll">Back to top</a>
       </section>
 
       <footer></footer>
     </main>
   </body>
+  <script type="text/javascript" src="Scripts/smoothscroll.js"></script>
   <script src="Scripts/randomPet.js"></script>
   <script src="Scripts/app.js"></script>
 </html>

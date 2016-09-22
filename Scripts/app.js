@@ -231,6 +231,7 @@
     pets.howBig();
     pets.assignedGender();
     pets.pareDown();
+    // pets.displayRandomDetails();
   });
 
   module.pets = pets;

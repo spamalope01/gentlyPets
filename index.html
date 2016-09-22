@@ -6,10 +6,13 @@
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <link rel="stylesheet" href="Styles/normalize.css">
+    <!-- <link rel="stylesheet" href="/Styles/modal.css"> -->
     <link rel="stylesheet" href="Styles/base.css">
     <link rel="stylesheet" href="Styles/layout.css">
     <link rel="stylesheet" href="Styles/module.css">
     <link rel="stylesheet" href="Styles/icons.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+
     <!-- handlebars template for results after filtering -->
     <script id="search-result" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
@@ -32,11 +35,46 @@
         <h3>Breed: {{breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
         <h3>Pet ID: {{id.$t}}</h3>
-        <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
+        <button class="testButton" value="piggy">Button</button>
+        <button id="randomInterested" value={{id.$t}} class='modalBtn'>Interested!</button>
         <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
         <hr/>
       </div>
+
+      <!-- Adding handlebars for animal detail view  -->
+    <script id="petDetails" type="text/x-handlebars-template">
+      <section id={{id.$t}}>
+        <article id="detailTop" class='detailTop'>
+          <h2 class='maven ivory-text'>{{name.$t}}</h2>
+          <article id="allPetPics">
+            <img src={{{media.photos.photo.2.$t}}}/>
+          </article>
+          <ul id="basicInfo" class='basicInfo'>
+            <li><p class='maven ivory-text'>Animal: {{animal.$t}}</p></li>
+            <li><p class='maven ivory-text'>Breed: {{breeds.breed.$t}}</p></li>
+            <li><p class='maven ivory-text'>Mix: {{mix.$t}}</p></li>
+            <li><p class='maven ivory-text'>Size: {{size.$t}}</p></li>
+            <li><p class='maven ivory-text'>Age: {{age.$t}}</p></li>
+          </ul>
+        </article>
+        <article id="detailBottom" class='detailBottom'>
+          <p class='descript maven ivory-text'>{{description.$t}}</p>
+          <ul id="detailContact">
+            <li class='maven ivory-text'>Shelter Id: {{shelterId.$t}}</li>
+            <li class='maven ivory-text'>Pet Id: {{id.$t}}</li>
+            <li class='maven ivory-text'>Last Updated: {{lastUpdate.$t}}</li>
+            <li class='maven ivory-text'>{{contact.address1.$t}}</li>
+            <li class='maven ivory-text'>{{contact.address2.$t}}</li>
+            <li class='maven ivory-text'>City: {{contact.city.$t}}</li>
+            <a href="mailto:{{contact.email.$t}}" class='maven ivory-text '>Email Contact: <span class='underline'>{{contact.email.$t}} </span></a>
+            <li class='maven ivory-text'>Contact #: {{contact.phone.$t}}</li>
+            <li class='maven ivory-text'>State: {{contact.state.$t}}</li>
+            <li class='maven ivory-text'>Zip: {{contact.zip.$t}}</li>
+          </ul>
+        </article>
+      </section>
     </script>
+
   </head>
   <body>
     <header>
@@ -107,10 +145,23 @@
         <button type="button" id="searchAgain" name="reSearch">Search Again</button>
       </section>
 
-
+<!--this is where the random pets will display  -->
       <section id="random">
         <h2>Here are some of our favorite pets just waiting on furever homes.</h2>
         <a href="#top" class="smoothScroll">Back to top</a>
+        <button class="testButton" value="piggy">Button</button>
+
+        <!--random details modal-->
+        <div id="randomModal" class="modal">
+          <!-- modal content here -->
+          <div class="modalContent">
+            <span class="closeModal">CLOSE</span>
+            <p>modal text here</p>
+          </div>
+        </div>
+
+
+
       </section>
 
       <section id="resources">
@@ -154,4 +205,6 @@
   <script type="text/javascript" src="Scripts/smoothscroll.js"></script>
   <script src="Scripts/randomPet.js"></script>
   <script src="Scripts/app.js"></script>
+  <!-- <script src="Scripts/fmodal.js"></script> -->
+  <!-- <script src="Scripts/randomDetailView.js"></script> -->
 </html>

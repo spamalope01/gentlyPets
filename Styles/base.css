@@ -4,20 +4,41 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;;
-  /*background-repeat: no-repeat;*/
 }
 
 header {
-  background-color: grey;
+  /*background-color: grey;*/
+}
+
+.globalNav {
+  list-style:none;
+  margin:0;
+  padding:0;
+  text-align:center;
+  /*background-color: #ADD8E6;*/
+  margin-bottom: 5%;
+  color: white;
+  width: auto;
+  background:rgba(0,0,0,.65);
 }
 
 #random {
-  background-color: grey;
-}
+  background-color: #ADD8E6;
+  margin-bottom: 5%;
+  color: white;
+  width: auto;
+  background:rgba(0,0,0,.65);
+  }
 
 #resources {
   background-color: #ADD8E6;
+  margin-bottom: 5%;
+  color: white;
+  width: auto;
+  background:rgba(0,0,0,.65);
 }
+
+
 
 button {
   border-radius: 5px;
@@ -35,9 +56,9 @@ input[type=button] {
   height: 50em;
   border: 1px solid black;
   /*background-image: url('../Images/seniorDogRight.jpg');*/
-  background-size:cover;
-  background-position: 100%;
-  background-repeat: no-repeat;
+  /*background-size:cover;*/
+  /*background-position: 100%;*/
+  /*background-repeat: no-repeat;*/
   display: flex;
   align-items: center;
 }

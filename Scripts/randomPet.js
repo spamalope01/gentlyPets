@@ -1,6 +1,9 @@
 (function(module) {
   var randomPets = {};
   randomPets.all = [];
+  var modal = $('#randomModal');
+  var btn = $('.modalBtn');
+  var span = $('.closeModal')[0];
 
   randomPets.getRandom = function() {
     console.log('running getRandom');
@@ -16,7 +19,7 @@
   });
   };
 
-
+  //
   randomPets.displayRandom = function() {
     randomPets.all.forEach(function(e){
       var source   = $("#landingRandom").html();
@@ -24,14 +27,70 @@
       var html    = template(e);
       $('#random').append(html);
     });
+    var modal = document.getElementById('randomModal');
+
+// Get the button that opens the modal
+var btn = document.getElementByClass("modalBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("closeModal")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+};
+
+// When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    };
+
+// When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+    // $('.modalBtn').off().on('click', function(){
+    //   console.log(modal);
+    //   $('#randomModal').style.display = "block";
+    // });
+    // $('.closeModal').off().on('click', function(){
+    //   modal.style.display = "none";
+    // });
+    // $('.pet-summary-element').off().on('click', '#randomInterested', function(e) {
+    //   randomPets.randomWanted = this.value;
+      // randomPets.randomText = this.getAttribute('data-text');
+      // console.log(randomPets.randomText);
+      // console.log(randomPets.randomWanted);
+      // randomPets.randomDetails(randomPets.randomWanted);
+    // });
   };
+
+  //have to launch the modal
+  // randomPets.randomDetails = function(petID) {
+  //   $('#animatedModal').animatedModal();
+  //
+  // };
+  // have to run handlebars on the modal and display the corresponding random pet's information.
+  // have to be able to close the  modal
+
+
+   // open modal on random pets when interested in seeing displayFullPetDetails
+
+   //     var randomDetailHTML = $('#randomDetails').html();
+   //     var randomDetailTemplate = Hanldebars.compile(randomDetailHTML);
+   //     var randomView = randomDetailTemplate(pet);
+   //     $('#animatedModal').append(randomView);
+   //   });
+   // };
 
 
 
   $(document).ready(function() {
-
+    // randomPets.displayRandomDetails();
     randomPets.getRandom();
   });
 
-  module.pets = randomPets;
+  module.randomPets = randomPets;
 })(window);

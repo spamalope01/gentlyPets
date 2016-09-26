@@ -28,12 +28,37 @@
       $('#random').append(html);
     });
     $('.modalBtn').off().on('click', function() {
+      randomPets.randomSpecs = $(this).val();
       $('div.modal').toggleClass('modal-show');
-    });
-    $('.closeModal').off().on('click', function() {
-      $('div.modal').toggleClass('modal-show');
+      randomPets.viewDetails(randomPets.randomSpecs);
     });
   };
+  $('.closeModal').off().on('click', function() {
+    $('div.modal').toggleClass('modal-show');
+    $('#randomDetails').empty();
+  });
+
+  randomPets.viewDetails = function(pet) {
+    randomPets.all.forEach(function(elem) {
+      if(pet === elem.id.$t){
+        console.log('pet is equal');
+        // console.log('elem id is ' + elem.id.$t);
+        var target = $('#petDetails').html();
+        var skeleton = Handlebars.compile(target);
+        var hyperText = skeleton(elem);
+        $('#randomDetails').append(hyperText);
+      }
+    });
+  };
+
+  // randomPets.interested = function(elem) {
+  //   // searchSource.forEach(function(elem){
+  //   // if(buttonVal == elem.id.$t){
+  //   randomPets.viewDetails(elem);
+  //   pets.selectedPet = elem;
+  //   // }
+  //   // });
+  // };
 
 // When the user clicks anywhere outside of the modal, close it
     // window.onclick = function(event) {

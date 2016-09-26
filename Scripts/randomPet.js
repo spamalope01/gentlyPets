@@ -27,30 +27,49 @@
       var html    = template(e);
       $('#random').append(html);
     });
-    var modal = document.getElementById('randomModal');
+    $('.modalBtn').off().on('click', function() {
+      randomPets.randomSpecs = $(this).val();
+      $('div.modal').toggleClass('modal-show');
+      randomPets.viewDetails(randomPets.randomSpecs);
+    });
+  };
+  $('.closeModal').off().on('click', function() {
+    $('div.modal').toggleClass('modal-show');
+    $('#randomDetails').empty();
+  });
 
-// Get the button that opens the modal
-var btn = document.getElementByClass("modalBtn");
+  randomPets.viewDetails = function(pet) {
+    randomPets.all.forEach(function(elem) {
+      if(pet === elem.id.$t){
+        console.log('pet is equal');
+        // console.log('elem id is ' + elem.id.$t);
+        var target = $('#petDetails').html();
+        var skeleton = Handlebars.compile(target);
+        var hyperText = skeleton(elem);
+        $('#randomDetails').append(hyperText);
+      }
+    });
+  };
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("closeModal")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-};
-
-// When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    };
+  // randomPets.interested = function(elem) {
+  //   // searchSource.forEach(function(elem){
+  //   // if(buttonVal == elem.id.$t){
+  //   randomPets.viewDetails(elem);
+  //   pets.selectedPet = elem;
+  //   // }
+  //   // });
+  // };
 
 // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
+    // window.onclick = function(event) {
+    //   if (event.target == modal) {
+    //     modal.style.display = "none";
+    //   }
+    // };
+
+
+
+
     // $('.modalBtn').off().on('click', function(){
     //   console.log(modal);
     //   $('#randomModal').style.display = "block";
@@ -65,7 +84,6 @@ btn.onclick = function() {
       // console.log(randomPets.randomWanted);
       // randomPets.randomDetails(randomPets.randomWanted);
     // });
-  };
 
   //have to launch the modal
   // randomPets.randomDetails = function(petID) {

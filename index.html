@@ -35,11 +35,11 @@
         <h3>Breed: {{breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
         <h3>Pet ID: {{id.$t}}</h3>
-        <button class="testButton" value="piggy">Button</button>
-        <button id="randomInterested" value={{id.$t}} class='modalBtn'>Interested!</button>
+        <button value={{id.$t}} class='modalBtn'>Interested!</button>
         <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
         <hr/>
       </div>
+    </script>
 
       <!-- Adding handlebars for animal detail view  -->
     <script id="petDetails" type="text/x-handlebars-template">
@@ -148,17 +148,18 @@
 <!--this is where the random pets will display  -->
       <section id="random">
         <h2>Here are some of our favorite pets just waiting on furever homes.</h2>
-        <a href="#top" class="smoothScroll">Back to top</a>
-        <button class="testButton" value="piggy">Button</button>
 
         <!--random details modal-->
         <div id="randomModal" class="modal">
-          <!-- modal content here -->
           <div class="modalContent">
-            <span class="closeModal">CLOSE</span>
+            <button class ="closeModal" type="button" name="closeModal">CLOSE</button>
             <p>modal text here</p>
+            <section id="randomDetails">
+
+            </section>
           </div>
         </div>
+        <a href="#top" class="smoothScroll">Back to top</a>
 
 
 

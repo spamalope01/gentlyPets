@@ -16,12 +16,12 @@
     <!-- handlebars template for results after filtering -->
     <script id="search-result" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
-        <img src={{{media.photos.photo.1.$t}}} />
+        <img src={{{media.photos.photo.2.$t}}} />
         <h1>{{name.$t}}</h1>
         <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
         <h4>Pet ID: {{id.$t}}</h3>
-        <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
+        <button value={{id.$t}} class= "deetsBtn petButton">Interested!</button>
         <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
         <hr/>
       </div>
@@ -30,7 +30,7 @@
     <!-- handlebars template for random pets when landing is in desktop -->
     <script id="landingRandom" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
-        <img src={{{media.photos.photo.0.$t}}} />
+        <img src={{{media.photos.photo.2.$t}}} />
         <h1>{{name.$t}}</h1>
         <h3>Breed: {{breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
@@ -140,10 +140,22 @@
       </section>
     </section>  <!--end search section -->
 
+      <!-- Matches after Searching Display Here -->
       <section id="matches" class="searchSection">
         <h3 id="noMatches"></h3>
         <button type="button" id="searchAgain" name="reSearch">Search Again</button>
+        <!-- Searched Pets Details Modal -->
+        <div id="searchedModal" class="lookingModal">
+          <div class="modalContent">
+            <button class ="closeModal" type="button" name="closeModal">CLOSE</button>
+            <p>modal text here</p>
+            <section id="searchedDetails">
+
+            </section>
+          </div>
+        </div>
       </section>
+
 
 <!--this is where the random pets will display  -->
       <section id="random">
@@ -166,24 +178,31 @@
       </section>
 
       <section id="resources">
-        <h1>Resources to Help You With Your New Adoption</h1>
-        <a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a>
-        <a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a>
-        <a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a>
-        <h2>Pet Insurance</h2>
-        <a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance">consumersadvocate.org</a>
-        <a href="http://www.healthypawspetinsurance.com/">Healthy Paws Pet Insurance</a>
-        <a href="http://www.gopetplan.com/">Pet Plan</a>
-        <a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a>
-        <h2>Financial Assistance</h2>
-        <a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a>
-        <a href="http://www.carecredit.com/vetmed">Care Credit</a>
-        <h2>Welcoming a Special Needs Pet to Your Home</h2>
-        <h2>Special Needs Pets Medical Supplies</h2>
-        <a href="http://www.handicappedpets.com/">handicappedpets.com</a>
-        <a href="http://hpets.org/">hpets.org</a>
-        <a href="http://www.k9carts.com/">k9carts.com</a>
-        <a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a>
+        <div id ="adoption" class="resourceLinks">
+          <h1>Resources to Help You With Your New Adoption</h1>
+          <a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a>
+          <a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a>
+          <a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a>
+        </div>
+        <div id="insurance" class="resourceLinks">
+          <h2>Pet Insurance</h2>
+          <a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance">consumersadvocate.org</a>
+          <a href="http://www.healthypawspetinsurance.com/">Healthy Paws Pet Insurance</a>
+          <a href="http://www.gopetplan.com/">Pet Plan</a>
+          <a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a>
+        </div>
+        <div id="financial" class="resourceLinks">
+          <h2>Financial Assistance</h2>
+          <a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a>
+          <a href="http://www.carecredit.com/vetmed">Care Credit</a>
+        </div>
+        <div id="suppplies" class="resourceLinks">
+          <h2>Special Needs Pets Medical Supplies</h2>
+          <a href="http://www.handicappedpets.com/">handicappedpets.com</a>
+          <a href="http://hpets.org/">hpets.org</a>
+          <a href="http://www.k9carts.com/">k9carts.com</a>
+          <a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a>
+        </div>
         <a href="#top" class="smoothScroll">Back to top</a>
       </section>
 

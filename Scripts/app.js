@@ -194,26 +194,36 @@
       var html = template(e);
       $('#matches').append(html);
     });
-    $('.searchSection').hide();
+    // $('.searchSection').hide();
     $('#random').hide();
+    pets.interestedButton();
   };
 
+// click event on the interested button
+  pets.interestedButton = function() {
+    $('.deetsBtn').off().on('click', function() {
+      pets.searchedSpecs = $(this).val();
+      $('div.lookingModal').toggleClass('modal-show');
+      pets.displayFullPetDetails(pets.searchedSpecs);
+    });
+    $('.closeModal').off().on('click', function() {
+      $('div.lookingModal').toggleClass('modal-show');
+      $('#searchedDetails').empty();
+    });
+  };
+
+
+// DISPLAY SELECTED PET'S DETAILED information
   pets.displayFullPetDetails = function(pet) {
-    var fullDetailHtml = $('#petDetails').html();
-    var fullDetailTemplate = Handlebars.compile(fullDetailHtml);
-    var petView = fullDetailTemplate(pet);
-    $('#Animal_Detail_Wrapper').append(petView);
-  };
-
-  pets.selectedPet = null;
-
-  pets.seeMoreButton = function(buttonVal) {
-    pets.filtered.forEach(function(pet) {
-      if (buttonVal === pet.id.$t) {
-        pets.selectedPet = pet;
+    pets.all.forEach(function(elem) {
+      if(pet === elem.id.$t){
+        console.log('pet is equal');
+        var fullDetailHtml = $('#petDetails').html();
+        var fullDetailTemplate = Handlebars.compile(fullDetailHtml);
+        var petView = fullDetailTemplate(elem);
+        $('#searchedDetails').append(petView);
       }
     });
-    pets.displayFullPetDetails(pets.selectedPet);
   };
 
   pets.equalHeights = function(){
@@ -223,7 +233,7 @@
   $(document).ready(function() {
     $('.searchSection').hide();
     $('.searchContainer').show();
-    pets.equalHeights();
+    // pets.equalHeights();
     // $('.pet-summary-element').equalHeights();
     pets.animal_wanted_click();
     pets.searchClick();

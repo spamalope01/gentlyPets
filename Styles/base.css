@@ -85,3 +85,8 @@ input[type=button] {
 .zipForm {
   margin-bottom: 2em;
 }
+
+#vetMap {
+  height: 400px;
+  width: 100%;
+}

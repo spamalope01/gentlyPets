@@ -3,6 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Gently Used Pets</title>
+    <style>
+       #vetMap {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <link rel="stylesheet" href="Styles/normalize.css">
@@ -198,9 +204,12 @@
           <input class="findVetButton" type="button" name="findVet" value="Search">
         </form>
         <!-- Map will display here -->
-        <div class="vetMap">
+        <div id="vetMap"></div>
 
-        </div>
+        <!-- <h3>My Google Maps Demo</h3>
+    <div id="map"></div> -->
+
+
         <a href="#top" class="smoothScroll">Back to top</a>
       </section>
 
@@ -210,5 +219,9 @@
   <script type="text/javascript" src="Scripts/smoothscroll.js"></script>
   <script src="Scripts/randomPet.js"></script>
   <script src="Scripts/app.js"></script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&callback=initMap">
+  </script>
   <script src="Scripts/vetFind.js"></script>
+
 </html>

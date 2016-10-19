@@ -1,142 +1,95 @@
 (function(module) {
   var findVet = {};
-  var startPos;
-  var geoSuccess;
+  var lat = '';
+  var lng = '';
+  var $zipWanted;
 
 // key:  AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo
 
-// just get a map to display
-//   findVet.initMap = function() {
-//     console.log('running initmap');
-//     $.ajax({
-//       type: 'GET',
-//       Method: 'Head',
-//       URL: 'https://.maps.googleapis.com/maps.api.js?key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo',
-//       error: function() {
-//         console.log('the ajax map call failed');
-//       },
-//       success: function() {
-//         console.log('made the call');
-//         var centerMap = {lat: -25.363, lng: 131.044};
-//         var map = new google.maps.Map($('#vetMap'), {
-//           zoom: 6,
-//           center: centerMap
-//         });
-//       }
-//     }
-// )};
 
+//get current location and display the map
   findVet.initMap = function() {
     var map = new google.maps.Map(document.getElementById('vetMap'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
-        });
-        var infoWindow = new google.maps.InfoWindow({map: map});
-
+      center: {lat: -33.5207, lng: 86.8025},
+      zoom: 6
+    });
         // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        map.setCenter(pos);
+        var marker = new google.maps.Marker({
+          position: pos,
+          map: map,
+        });
+        marker.setMap(map);
+      }, function() {
+        handleLocationError(true, map.getCenter());
+      });
+    } else {
           // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
+      handleLocationError(false, map.getCenter());
+    }
   };
-
-  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
+  function handleLocationError(browserHasGeolocation, pos) {
+    map.setPosition(pos);
+    map.setContent(browserHasGeolocation ?
                           'Error: The Geolocation service failed.' :
                           'Error: Your browser doesn\'t support geolocation.');
   };
-    // var currentPostion = function() {
-    //   console.log('running getCurrentPostion');
-    //   var map = new google.maps.Map(document.getElementById('vetMap'), {
-    //     center: {lat: -34.397, lng: 150.644},
-    //     zoom: 6
-    //   });
-    //   console.log('got vetMap');
-    //   var infoWindow = new google.maps.InfoWindow({map: map});
-    //
-    //   if(navigator.geolocation) {
-    //   startPos = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD7pJXLKj8XvLf0PX4P94Li1zKJi05IkIk&callback=initMap";
-    //     navigator.geolocation.getCurrentPostion(function(position) {
-    //       var pos = {
-    //         lat: position.coords.latitude,
-    //         lng: position.coords.longitude
-    //       };
-    //
-    //       infoWindow.setPosition(pos);
-    //       infoWindow.setContent('Location found.');
-    //       map.setCenter(pos);
-    //     }, function() {
-    //       handleLocationError(true, infoWindow, map.getCenter());
-    //     });
-    //   } else {
-    //     handleLocationError(false, infoWindow, map.getCenter());
-    //   }
-    // };
-    // var uluru = {lat: -25.363, lng: 131.044};
-    // var map = new google.maps.Map($('#vetMap'), {
-    //   zoom: 4,
-    //   center: uluru
-    // });
-    // var marker = new google.maps.Marker({
-    //   position: uluru,
-    //   map: map
-    // });
-    // findVet.getCurrentPostion();
 
+  // // need to capture their zip code input and pass it to the api call
+  findVet.getZipDesired = function() {
+    $('.vetZipForm').off().on('click', '.findVetButton', function(e) {
+      e.preventDefault();
+      $zipWanted = $('#vetZip').val();
+      var geocoder = new google.maps.Geocoder();
+      console.log($zipWanted);
+      geocodeZip(geocoder, $zipWanted);
+    });
+    function geocodeZip(geocoder, zip){
+      geocoder.geocode({'address': $zipWanted}, function(results, status) {
+        if(status === 'OK') {
+          lat = results[0].geometry.location.lat();
+          lng = results[0].geometry.location.lng();
+          console.log('lat is: ' + lat);
+          console.log('lng is: ' + lng);
+          findVet.vetSearch();
+        } else {
+          console.log('geocode not successful: ' + status);
+        }
+      });
+    }
+  };
 
+  // Search for nearby vets
 
-
-// have to get the user's current location to atuo set the google map
-  //
-  // function handleLocationError(browswerHasGelolcation, infoWindow, pos) {
-  //   infoWindow.setPosition(pos);
-  //   infoWindow.setContent(browswerHasGelolcation ? 'Error: The Geolocation service failed.'  : 'Error: Your browswer does not support geolocation.');
-  // }
-  //   window.onload = function() {
-  //     geoSuccess = function(position) {
-  //       startPos = position;
-  //       $('#startLat').innerHTML = startPos.coords.latitude;
-  //       $('#startLon').innerHTML = startPos.coords.longitude;
-  //     };
-  //     navigator.geolocation.getCurrentPosition(getSuccess);
-  //   };
-  //   console.log('position is ' + startPos);
+  findVet.vetSearch = function() {
+    console.log('fired vetSearch');
+    $.ajax({
+      url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/jsonp?location=' + lat + ',' + lng + '&radius=5000&&rankby=distance&type=veterinary_care&key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo',
+      type: "GET",
+      dataType: 'jsonp',
+      cache: false,
+      success: function(response){
+        console.log('api was good');
+        vets.all = [];
+        vets.all = response;
+      }
+    });
+  };
+  //   console.log('lat: ' + lat);
+  //   console.log('lng: ' + lng);
+  //   $.getJSON('https://maps.googleapis.com/maps/api/place/radarsearch/json?location=' + lat + ', ' + lng + '&radius=5000&type=veterinary_care&key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo')
+  // .done(function(results) {
+  //   vets.all = [];
+  //   vets.all = results.name;
+  // }).fail(console.log('api call failed' + status));
   // };
 
-// Google Map API call
-//   findVet.getMap = function(zip) {
-//     console.log('zip is' + zip);
-//     $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?postal_code=' + zip + '&key=AIzaSyD7pJXLKj8XvLf0PX4P94Li1zKJi05IkIk')
-//     .done(function() {
-//       console.log('got the map stuff');
-//     })
-//     .fail(function(err) {
-//       alert('Error retrieving data!');
-//     });
-//   };
-// // need to capture their zip code input and pass it to the api call
-//   findVet.getZipDesired = function() {
-//     $('.vetZipForm').off().on('click', '.findVetButton', function(e) {
-//       e.preventDefault();
-//       var $zipWanted = $('#vetZip').val();
-//       console.log($zipWanted);
-//       findVet.getMap($zipWanted);
-//     });
-//   };
 
 
 
@@ -148,8 +101,7 @@
 
   $(document).ready(function() {
     findVet.initMap();
-    // findVet.getCurrentPostion();
-    // findVet.getZipDesired();
+    findVet.getZipDesired();
   });
   module.findVet = findVet;
 })(window);

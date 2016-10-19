@@ -38,7 +38,8 @@
         <h3>Gender: {{sex.$t}}</h3>
         <h3>Pet ID: {{id.$t}}</h3>
         <button value={{id.$t}} class='modalBtn'>Interested!</button>
-        <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
+        <button value={{id.$t}} class='petSaveButton'>Save to Favorites</button>
+        <!-- <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button> -->
         <hr/>
       </div>
     </script>
@@ -219,5 +220,6 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&callback=initMap">
   </script>
   <script src="Scripts/vetFind.js"></script>
+  <script src="Scripts/favorites.js"></script>
 
 </html>

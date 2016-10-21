@@ -1,8 +1,3 @@
-//need to capture the pet that is selectedPet
-//have to put that selected pet into local storage
-//have to have a way to display saved pets within the favorites section of the landing page, using handlebars
-//need to ensure that saved pets can still show full displayRandomDetails
-
 (function(module) {
   var favs = {};
   favs.favoritePet = null;
@@ -11,37 +6,44 @@
   //check if LS exists, otherwise make selectedPets an empty Array
   favs.isLS = function() {
     if(localStorage.favoritePets) {
-      console.log('ls exists!' + localStorage.favoritePets);
-      // favs.savedPets = JSON.parse(localStorage.getItem('xxxx'));
     } else {
       favs.savedPets = [];
     }
   };
 
-//get the value of the selected pet
-  favs.selectedPet = function() {
-    $('#random').off().on('click', '.petSaveButton', function(){
-      console.log('clicked the save button');
+//get the value of the selected random pet
+  favs.randomSelectedPet = function() {
+    $('#random').off().on('click', '.randomSaveButton', function(){
       favs.favoritePet = $(this).val();
-      console.log('selected favorite is: ' + favs.favoritePet);
-      favs.storeFavorite(favs.favoritePet);
+      favs.reservePet(favs.favoritePet, randomPets.all);
+      // favs.storeFavorite(favs.favoritePet);
     });
   };
 
-//send to local storage
-  favs.storeFavorite = function(pet) {
-    favs.savedPets.push(pet);
-    localStorage.setItem('favoritePets', JSON.stringify(favs.savedPets));
-    console.log('saved the pet to LS');
-    console.log('pet is: ' + pet);
+// gets the value of the selected searched pet
+  favs.searchSelectedPet = function() {
+    $('#matches').off().on('click', '.searchSaveButton', function(){
+      favs.favoritePet = $(this).val();
+      favs.reservePet(favs.favoritePet, pets.all);
+    });
   };
 
-//display favorites
+// this pulls the pet object out of the corresponding array and puts the pet in local storage.
+  favs.reservePet = function(buttonVal,searchSource) {
+    searchSource.forEach(function(elem){
+      if(buttonVal == elem.id.$t){
+        favs.savedPets.push(elem);
+        localStorage.setItem('favoritePets', JSON.stringify(favs.savedPets));
+      }
+    });
+  };
+
+//display favorites pulls pets out of local storage and displays in the favorites section
   favs.displaySavedPets = function() {
     if(localStorage.favoritePets) {
       favs.savedPets = JSON.parse(localStorage.getItem('favoritePets'));
       favs.savedPets.forEach(function(e){
-        var source = $('#landingRandom').html();
+        var source = $('#landingFavorites').html();
         var template = Handlebars.compile(source);
         var html = template(e);
         $('#favorites').append(html);
@@ -52,7 +54,9 @@
   };
 
 
-//left to do:  need to create a new handlebars for favorite pets that has a 'remove from saved' button instead of save button.  need to figure out why pet information isn't showing up in the blocks.  need to provide a header in that section and the 'no saved pets' verbiage on page load. need to make sure that a user can view a saved pet's details.
+//left to do:
+// need to make sure that a user can view a saved pet's details.
+// need to wire up the remove button
 
 
 
@@ -63,7 +67,8 @@
 
   $(document).ready(function() {
     favs.isLS();
-    favs.selectedPet();
+    favs.randomSelectedPet();
+    favs.searchSelectedPet();
     favs.displaySavedPets();
   });
 

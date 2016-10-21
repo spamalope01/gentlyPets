@@ -24,7 +24,7 @@
         <h3>Gender: {{sex.$t}}</h3>
         <h4>Pet ID: {{id.$t}}</h3>
         <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
-        <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
+        <button value={{id.$t}} class='searchSaveButton'>Save to Favorites</button>
         <hr/>
       </div>
     </script>
@@ -38,8 +38,21 @@
         <h3>Gender: {{sex.$t}}</h3>
         <h3>Pet ID: {{id.$t}}</h3>
         <button value={{id.$t}} class='modalBtn'>Interested!</button>
-        <button value={{id.$t}} class='petSaveButton'>Save to Favorites</button>
-        <!-- <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button> -->
+        <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
+        <hr/>
+      </div>
+    </script>
+
+    <!-- handlebars template for favorites pets when landing is in desktop -->
+    <script id="landingFavorites" type="text/x-handlebars-template">
+      <div class='pet-summary-element'>
+        <img src={{{media.photos.photo.0.$t}}} />
+        <h1>{{name.$t}}</h1>
+        <h3>Breed: {{breed.$t}}</h3>
+        <h3>Gender: {{sex.$t}}</h3>
+        <h3>Pet ID: {{id.$t}}</h3>
+        <button value={{id.$t}} class='modalBtn'>Interested!</button>
+        <button value={{id.$t}} class='removeFavsButton'>Remove</button>
         <hr/>
       </div>
     </script>
@@ -191,6 +204,7 @@
       </section>
 
       <section id="favorites" class="favePets">
+        <h1>Favorites</h1>
         <a href="#top">Back to top</a>
       </section>
 

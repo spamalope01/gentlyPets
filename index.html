@@ -22,7 +22,7 @@
         <h1>{{name.$t}}</h1>
         <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
-        <h4>Pet ID: {{id.$t}}</h3>
+        <!-- <h4>Pet ID: {{id.$t}}</h3> -->
         <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
         <button value={{id.$t}} class='searchSaveButton'>Save to Favorites</button>
         <hr/>
@@ -34,9 +34,9 @@
       <div class='pet-summary-element'>
         <img src={{{media.photos.photo.0.$t}}} />
         <h1>{{name.$t}}</h1>
-        <h3>Breed: {{breed.$t}}</h3>
+        <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
-        <h3>Pet ID: {{id.$t}}</h3>
+        <!-- <h3>Pet ID: {{id.$t}}</h3> -->
         <button value={{id.$t}} class='modalBtn'>Interested!</button>
         <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
         <hr/>
@@ -48,9 +48,9 @@
       <div class='pet-summary-element'>
         <img src={{{media.photos.photo.0.$t}}} />
         <h1>{{name.$t}}</h1>
-        <h3>Breed: {{breed.$t}}</h3>
+        <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
-        <h3>Pet ID: {{id.$t}}</h3>
+        <!-- <h3>Pet ID: {{id.$t}}</h3> -->
         <button value={{id.$t}} class='modalBtn'>Interested!</button>
         <button value={{id.$t}} class='removeFavsButton'>Remove</button>
         <hr/>
@@ -205,7 +205,7 @@
 
       <section id="favorites" class="favePets">
         <h1>Favorites</h1>
-        <a href="#top">Back to top</a>
+        <a href="#top" class="smoothScroll">Back to top</a>
       </section>
 
       <section id="vet" class="vetFinder">
@@ -231,8 +231,9 @@
   <script src="Scripts/randomPet.js"></script>
   <script src="Scripts/app.js"></script>
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo">
   </script>
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?&location=%radius=5000&&rankby=distance&type=veterinary_care&key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&libraries=places"></script> -->
   <script src="Scripts/vetFind.js"></script>
   <script src="Scripts/favorites.js"></script>
 

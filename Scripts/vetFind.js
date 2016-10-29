@@ -1,8 +1,14 @@
+var service;
+var place;
+
 (function(module) {
   var findVet = {};
   var lat = '';
   var lng = '';
-  var $zipWanted;
+  var vetMap;
+  // var service;
+  var infoWindow;
+  var pos;
 
 // key:  AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo
 
@@ -13,82 +19,134 @@
       center: {lat: -33.5207, lng: 86.8025},
       zoom: 6
     });
-        // Try HTML5 geolocation.
+       // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
+        pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
+        console.log('lat: ' + lat);
+        console.log('long: ' + lng);
         map.setCenter(pos);
-        var marker = new google.maps.Marker({
-          position: pos,
-          map: map,
-        });
-        marker.setMap(map);
-      }, function() {
-        handleLocationError(true, map.getCenter());
+        findVet.vetSearch(lat, lng);
       });
-    } else {
-          // Browser doesn't support Geolocation
-      handleLocationError(false, map.getCenter());
-    }
-  };
-  function handleLocationError(browserHasGeolocation, pos) {
-    map.setPosition(pos);
-    map.setContent(browserHasGeolocation ?
-                          'Error: The Geolocation service failed.' :
-                          'Error: Your browser doesn\'t support geolocation.');
+    };
   };
 
-  // // need to capture their zip code input and pass it to the api call
-  findVet.getZipDesired = function() {
-    $('.vetZipForm').off().on('click', '.findVetButton', function(e) {
-      e.preventDefault();
-      $zipWanted = $('#vetZip').val();
-      var geocoder = new google.maps.Geocoder();
-      console.log($zipWanted);
-      geocodeZip(geocoder, $zipWanted);
+
+  findVet.vetSearch = function(lat, long) {
+    var pyrmont = new google.maps.LatLng(lat,long);
+
+    vetMap = new google.maps.Map(document.getElementById('vetMap'), {
+      center: pyrmont,
+      zoom: 15
     });
-    function geocodeZip(geocoder, zip){
-      geocoder.geocode({'address': $zipWanted}, function(results, status) {
-        if(status === 'OK') {
-          lat = results[0].geometry.location.lat();
-          lng = results[0].geometry.location.lng();
-          console.log('lat is: ' + lat);
-          console.log('lng is: ' + lng);
-          findVet.vetSearch();
-        } else {
-          console.log('geocode not successful: ' + status);
-        }
-      });
-    }
+
+    var request = {
+      url: 'https://maps.googleapis.com/maps/api/js?&rankby=distance&key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&libraries=places',
+      location: pyrmont,
+      radius: '2500',
+      query: 'veterinary_care'
+    };
+
+    service = new google.maps.places.PlacesService(vetMap);
+    service.textSearch(request, callback);
   };
 
-  // Search for nearby vets
-
-  findVet.vetSearch = function() {
-    console.log('fired vetSearch');
-    $.ajax({
-      url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/jsonp?location=' + lat + ',' + lng + '&radius=5000&&rankby=distance&type=veterinary_care&key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo',
-      type: "GET",
-      dataType: 'jsonp',
-      cache: false,
-      success: function(response){
-        console.log('api was good');
-        vets.all = [];
-        vets.all = response;
+  function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        place = results[i];
+        createMarker(results[i]);
       }
-    });
+    };
   };
-  //   console.log('lat: ' + lat);
-  //   console.log('lng: ' + lng);
-  //   $.getJSON('https://maps.googleapis.com/maps/api/place/radarsearch/json?location=' + lat + ', ' + lng + '&radius=5000&type=veterinary_care&key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo')
-  // .done(function(results) {
-  //   vets.all = [];
-  //   vets.all = results.name;
-  // }).fail(console.log('api call failed' + status));
+      // findVet.vetSearch = function(lat, long) {
+      //   var start = new google.maps.LatLng(lat,long);
+      //   console.log('start:' + start);
+      //   vetMap = new google.maps.Map(document.getElementById('vetMap'), {
+      //     center: start,
+      //     zoom: 15
+      //   });
+      //
+      //   request = {
+      //     url: 'https://maps.googleapis.com/maps/api/js?&&rankby=distance&key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&libraries=places',
+      //     location: start,
+      //     radius: '25000',
+      //     query: 'veterinary_care'
+      //   };
+      //   // var marker = new google.maps.Marker({
+      //   //   position: start,
+      //   //   map: map,
+      //   // });
+      //   var service = new google.maps.places.PlacesService(vetMap);
+      //   service.textSearch(request, callback);
+      // }
+      //
+      //   function callback(results, status) {
+      //     console.log('results:' + results);
+      //     if(status == google.maps.places.PlacesServiceStatus.OK) {
+      //       for(var i = 0; i < results.length; i++) {
+      //         place = results[i];
+      //         console.log('place: ' + place[i].geometry.lat);
+      //         // console.log('place length: ' + place.length);
+      //         // var vetMarker = new google.maps.Marker({
+      //         //   position: results[i],
+      //         //   map: map,
+      //         // };
+      //         // vetMarker.setMap(vetMarker);
+      //         // createMarker(results[i]);
+      //       }
+      //     }
+      //   }
+        // marker.setMap(map);
+      // };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //   else {
+  //         // Browser doesn't support Geolocation
+  //     handleLocationError(false, map.getCenter());
+  //   }
+  // function handleLocationError(browserHasGeolocation, pos) {
+  //   map.setPosition(pos);
+  //   map.setContent(browserHasGeolocation ?
+  //                         'Error: The Geolocation service failed.' :
+  //                         'Error: Your browser doesn\'t support geolocation.');
   // };
+  //
+
+
+
+
+
+
+
 
 
 
@@ -101,7 +159,6 @@
 
   $(document).ready(function() {
     findVet.initMap();
-    findVet.getZipDesired();
   });
   module.findVet = findVet;
 })(window);

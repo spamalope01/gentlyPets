@@ -1,12 +1,11 @@
-var service;
-var place;
+// var service;
 
 (function(module) {
   var findVet = {};
   var lat = '';
   var lng = '';
   var vetMap;
-  // var service;
+  var service;
   var infoWindow;
   var pos;
 
@@ -15,10 +14,10 @@ var place;
 
 //get current location and display the map
   findVet.initMap = function() {
-    var map = new google.maps.Map(document.getElementById('vetMap'), {
-      center: {lat: -33.5207, lng: 86.8025},
-      zoom: 6
-    });
+    // var map = new google.maps.Map(document.getElementById('vetMap'), {
+    //   center: {lat: -33.5207, lng: 86.8025},
+    //   zoom: 6
+    // });
        // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -30,36 +29,37 @@ var place;
         lng = position.coords.longitude;
         console.log('lat: ' + lat);
         console.log('long: ' + lng);
-        map.setCenter(pos);
+        // map.setCenter(pos);
         findVet.vetSearch(lat, lng);
       });
     };
   };
 
-
   findVet.vetSearch = function(lat, long) {
-    var pyrmont = new google.maps.LatLng(lat,long);
+    var start = new google.maps.LatLng(lat,long);
 
     vetMap = new google.maps.Map(document.getElementById('vetMap'), {
-      center: pyrmont,
-      zoom: 15
+      center: start,
+      zoom: 10
     });
 
     var request = {
       url: 'https://maps.googleapis.com/maps/api/js?&rankby=distance&key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&libraries=places',
-      location: pyrmont,
+      location: start,
       radius: '2500',
       query: 'veterinary_care'
     };
 
+    // console.log('service: ' + service);
     service = new google.maps.places.PlacesService(vetMap);
     service.textSearch(request, callback);
   };
 
   function callback(results, status) {
+    console.log('results: ' + results);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
-        place = results[i];
+        places = results[i];
         createMarker(results[i]);
       }
     };

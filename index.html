@@ -25,7 +25,7 @@
         <!-- <h4>Pet ID: {{id.$t}}</h3> -->
         <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
         <button value={{id.$t}} class='searchSaveButton'>Save to Favorites</button>
-        <hr/>
+        <!-- <hr/> -->
       </div>
     </script>
 
@@ -39,7 +39,7 @@
         <!-- <h3>Pet ID: {{id.$t}}</h3> -->
         <button value={{id.$t}} class='modalBtn'>Interested!</button>
         <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
-        <hr/>
+        <!-- <hr/> -->
       </div>
     </script>
 
@@ -53,7 +53,7 @@
         <!-- <h3>Pet ID: {{id.$t}}</h3> -->
         <button value={{id.$t}} class='modalBtn'>Interested!</button>
         <button value={{id.$t}} class='removeFavsButton'>Remove</button>
-        <hr/>
+        <!-- <hr/> -->
       </div>
     </script>
 
@@ -182,24 +182,31 @@
       </section>
 
       <section id="resources">
+        <div id="adoption" class="resourceGroup">
         <h1>Resources to Help You With Your New Adoption</h1>
-        <a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a>
-        <a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a>
-        <a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a>
-        <h2>Pet Insurance</h2>
-        <a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance">consumersadvocate.org</a>
-        <a href="http://www.healthypawspetinsurance.com/">Healthy Paws Pet Insurance</a>
-        <a href="http://www.gopetplan.com/">Pet Plan</a>
-        <a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a>
-        <h2>Financial Assistance</h2>
-        <a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a>
-        <a href="http://www.carecredit.com/vetmed">Care Credit</a>
-        <h2>Welcoming a Special Needs Pet to Your Home</h2>
-        <h2>Special Needs Pets Medical Supplies</h2>
-        <a href="http://www.handicappedpets.com/">handicappedpets.com</a>
-        <a href="http://hpets.org/">hpets.org</a>
-        <a href="http://www.k9carts.com/">k9carts.com</a>
-        <a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a>
+          <a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a>
+          <a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a>
+          <a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a>
+        </div>
+        <div id="insurance" class="resourceGroup">
+          <h2>Pet Insurance</h2>
+          <a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance">consumersadvocate.org</a>
+          <a href="http://www.healthypawspetinsurance.com/">Healthy Paws Pet Insurance</a>
+          <a href="http://www.gopetplan.com/">Pet Plan</a>
+          <a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a>
+        </div>
+        <div id="financial" class="resourceGroup">
+          <h2>Financial Assistance</h2>
+          <a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a>
+          <a href="http://www.carecredit.com/vetmed">Care Credit</a>
+        </div>
+        <div id="supplies" class="resourceGroup">
+          <h2>Special Needs Pets Medical Supplies</h2>
+          <a href="http://www.handicappedpets.com/">handicappedpets.com</a>
+          <a href="http://hpets.org/">hpets.org</a>
+          <a href="http://www.k9carts.com/">k9carts.com</a>
+          <a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a>
+        </div>
         <a href="#top" class="smoothScroll">Back to top</a>
       </section>
 
@@ -215,7 +222,7 @@
           <input class="findVetButton" type="button" name="findVet" value="Search">
         </form>
         <!-- Map will display here -->
-        <div id="vetMap"></div>
+        <!-- <div id="vetMap"></div> -->
 
         <!-- <h3>My Google Maps Demo</h3>
     <div id="map"></div> -->

@@ -33,18 +33,26 @@ padding: 0.625em;
 }
 
 .pet-summary-element {
+  border-radius: 50px;
   display: inline-block;
   margin: 2em 2em;
   /*height: auto;*/
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   width: 20em;
   background-color: grey;
+  text-align: center;
 }
 
 .pet-summary-element img {
   margin-top: .5em;
   height: 100px;
   width: 100px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.pet-summary-element button {
+  margin-bottom: .5em;
 }
 
 #resources {
@@ -58,6 +66,18 @@ padding: 0.625em;
 #vet {
   text-align: center;
 }
+
+.resourceGroup {
+  border-radius: 50px;
+  display: inline-block;
+  margin: 2em 2em;
+  /*height: auto;*/
+  /*border: 1px solid black;*/
+  width: 20em;
+  background-color: grey;
+  text-align: center;
+}
+
 
 }
 

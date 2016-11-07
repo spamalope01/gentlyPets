@@ -1,5 +1,17 @@
 // this is the Ajax call to the petfinder api
 
+$(window).scroll(function() {
+  var scroll = $(window).scrollTop();
+
+  if (scroll >= 50) {
+    $('.stickyNav').addClass('darkNav');
+  } else {
+    $('.stickyNav').removeClass('darkNav');
+  }
+});
+
+
+
 (function(module) {
   var pets = {};
   pets.$petWanted = null;

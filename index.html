@@ -11,7 +11,8 @@
     <!-- <link rel="stylesheet" href="/Styles/modal.css"> -->
     <link rel="stylesheet" href="Styles/base.css">
     <link rel="stylesheet" href="Styles/layout.css">
-    <link rel="stylesheet" href="Styles/module.css">
+    <link rel="stylesheet" href="Styles/favoritesModule.css">
+    <link rel="stylesheet" href="Styles/randomModule.css">
     <link rel="stylesheet" href="Styles/icons.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ek+Mukta" rel="stylesheet">
@@ -30,7 +31,7 @@
       </div>
     </script>
 
-    <!-- handlebars template for random pets when landing is in desktop -->
+    <!-- handlebars template for RANDOM pets when landing is in desktop -->
     <script id="landingRandom" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
         <img src={{{media.photos.photo.0.$t}}} />
@@ -38,13 +39,13 @@
         <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
         <!-- <h3>Pet ID: {{id.$t}}</h3> -->
-        <button value={{id.$t}} class='modalBtn'>Interested!</button>
+        <button value={{id.$t}} class='randModalBtn'>Interested!</button>
         <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
         <!-- <hr/> -->
       </div>
     </script>
 
-    <!-- handlebars template for favorites pets when landing is in desktop -->
+    <!-- handlebars template for FAVORITE pets when landing is in desktop -->
     <script id="landingFavorites" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
         <img src={{{media.photos.photo.0.$t}}} />
@@ -52,7 +53,7 @@
         <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
         <!-- <h3>Pet ID: {{id.$t}}</h3> -->
-        <button value={{id.$t}} class='modalBtn'>Interested!</button>
+        <button value={{id.$t}} class='faveModalBtn'>Interested!</button>
         <button value={{id.$t}} class='removeFavsButton'>Remove</button>
         <!-- <hr/> -->
       </div>
@@ -168,9 +169,9 @@
         <h2>Here are some of our favorite pets just waiting on furever homes.</h2>
 
         <!--random details modal-->
-        <div id="randomModal" class="modal">
-          <div class="modalContent">
-            <button class ="closeModal" type="button" name="closeModal">CLOSE</button>
+        <div id="randomModal" class="randDetailModal">
+          <div class="randModalContent">
+            <button class ="randCloseModal" type="button" name="closeModal">CLOSE</button>
             <p>modal text here</p>
             <section id="randomDetails">
 
@@ -219,6 +220,21 @@
 
       <section id="favorites" class="favePets">
         <h1>Favorites</h1>
+
+        <!--favorites details modal-->
+        <div id="faveModal" class="favoritesModal">
+          <div class="modalContent">
+            <button class ="favsCloseModal" type="button" name="closeModal">CLOSE</button>
+            <p>modal text here</p>
+            <section id="faveDetails">
+
+            </section>
+          </div>
+        </div>
+
+
+
+
         <a href="#top" class="smoothScroll">Back to top</a>
       </section>
 

@@ -1,18 +1,9 @@
 /* The Modal (background) */
-.modal {
+.favoritesModal {
     display: none; /* Hidden by default */
-    /*position: fixed; /* Stay in place */
-    /*z-index: 1; /* Sit on top */
-    /*left: 0;*/
-    /*top: 0;*/
-    /*width: 100%; /* Full width */
-    /*height: 100%; /* Full height */
-    /*overflow: auto; /* Enable scroll if needed */
-    /*background-color: rgb(0,0,0); /* Fallback color */
-    /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.modal-show {
+.favModal-show {
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 10; /* Sit on top */
@@ -24,6 +15,8 @@
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,.86);
 }
+
+
 
 /* Modal Content/Box */
 .modal-content {
@@ -37,12 +30,12 @@
     font-size: 1em;
 }
 
-#randomDetails {
+#faveDetails {
   color: white;
 }
 
 /* The Close Button */
-.closeModal {
+.favsCloseModal {
     position: absolute;
     left: 50%;
     right: 50%;

@@ -48,6 +48,13 @@
         var html = template(e);
         $('#favorites').append(html);
       });
+      $('.faveModalBtn').off().on('click', function() {
+        console.log('hit the interested fave button');
+        favs.favSpecs = $(this).val();
+        $('div.favoritesModal').toggleClass('favModal-show');
+        // $('div.randModal').hide();
+        favs.viewDetails(favs.favSpecs);
+      });
     } else {
       $('#favorites').html('<h2>You have no pets saved yet</h2>');
     }
@@ -56,8 +63,26 @@
 
 //left to do:
 // need to make sure that a user can view a saved pet's details.
-// need to wire up the remove button
+  favs.viewDetails = function(pet) {
+    favs.savedPets.forEach(function(elem) {
+      if(pet === elem.id.$t){
+        console.log('pet is equal');
+        // console.log('elem id is ' + elem.id.$t);
+        var target = $('#petDetails').html();
+        var skeleton = Handlebars.compile(target);
+        var hyperText = skeleton(elem);
+        $('#faveDetails').append(hyperText);
+      }
+    });
+    favs.closeModal();
+  };
 
+  favs.closeModal = function() {
+    $('.favsCloseModal').off().on('click', function() {
+      $('div.favoritesModal').toggleClass('favModal-show');
+      $('#faveDetails').empty();
+    });
+  };
 
 
 
@@ -70,6 +95,7 @@
     favs.randomSelectedPet();
     favs.searchSelectedPet();
     favs.displaySavedPets();
+    favs.viewDetails();
   });
 
 

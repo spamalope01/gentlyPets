@@ -111,9 +111,10 @@
     </header>
     <main>
       <section id="search">  <!--start search section -->
+
         <div class="searchContainer searchSection">
           <h2>I'm looking for a...</h2>
-          <form class="searchForm" action="index.html" method="post">
+          <form id="searchForm" action="index.html" method="post">
             <button class="searchPetButton" type="button" name="Dog" value="dog">Dog</button>
             <button class="searchPetButton" type="button" name="Cat" value="cat">Cat</button>
             <button class="searchPetButton" type="button" name="Reptile" value="reptile">Reptile</button>
@@ -140,21 +141,21 @@
         <div id="filterResultsWrapper">
           <h2>I would like a new pet who is...</h2>
           <p>Please try to limit your criteria to 3 options for best results</p>
-          <input type="checkbox" id='seniorCheckbox' value="Senior"><span class='page-text'>Senior</span></input>
-          <input type="checkbox" id="specialCheckbox" value="specialNeeds"><span class='page-text'>Special Needs</span></input>
-          <select id="petLargeness" class="" name="">
-            <option value="Size of Pet">Size Of Pet</option>
-            <option value="S">Small</option>
-            <option value="M">Medium</option>
-            <option value="L">Large</option>
-          </select>
-          <form>
-            <div id="gender">
-              <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
-              <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
-            </div>
-            </form>
+          <form id="pareForm" action="index.html" method="post">
+            <input type="checkbox" id='seniorCheckbox' value="Senior"><span class='page-text'>Senior</span></input>
+            <input type="checkbox" id="specialCheckbox" value="specialNeeds"><span class='page-text'>Special Needs</span></input>
+            <select id="petLargeness" class="" name="">
+              <option value="Size of Pet">Size Of Pet</option>
+              <option value="S">Small</option>
+              <option value="M">Medium</option>
+              <option value="L">Large</option>
+            </select>
+              <div id="gender">
+                <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
+                <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
+              </div>
             <button type="button" id='showButton' name="showMe">Show Me My Matches</button>
+          </form>
         </div>
       </section>
     </section>  <!--end search section -->
@@ -258,15 +259,15 @@
     </main>
   </body>
   <script type="text/javascript" src="Scripts/smoothscroll.js"></script>
-  <script src="Scripts/randomPet.js"></script>
   <script src="Scripts/app.js"></script>
+  <script src="Scripts/randomPet.js"></script>
+  <script src="Scripts/favorites.js"></script>
   <!-- <script scr="Scripts/scroll.js"></script> -->
   <!-- <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&callback=findVet.vetSearch">
   </script> -->
   <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?&location=%radius=5000&&rankby=distance&type=veterinary_care&key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&libraries=places"></script> -->
   <!-- <script src="Scripts/vetFind.js"></script> -->
-  <script src="Scripts/favorites.js"></script>
 
 
 </html>

@@ -52,7 +52,6 @@
         console.log('hit the interested fave button');
         favs.favSpecs = $(this).val();
         $('div.favoritesModal').toggleClass('favModal-show');
-        // $('div.randModal').hide();
         favs.viewDetails(favs.favSpecs);
       });
     } else {
@@ -67,7 +66,6 @@
     favs.savedPets.forEach(function(elem) {
       if(pet === elem.id.$t){
         console.log('pet is equal');
-        // console.log('elem id is ' + elem.id.$t);
         var target = $('#petDetails').html();
         var skeleton = Handlebars.compile(target);
         var hyperText = skeleton(elem);

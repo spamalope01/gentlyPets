@@ -29,7 +29,6 @@
       $('#random').append(html);
     });
     $('.randModalBtn').off().on('click', function() {
-      console.log('clicked totes');
       randomPets.randomSpecs = $(this).val();
       $('div.randDetailModal').toggleClass('randModal-show');
       randomPets.viewDetails(randomPets.randomSpecs);

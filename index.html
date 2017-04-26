@@ -21,57 +21,29 @@
     <script id="search-result" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
         <img src={{{media.photos.photo.1.$t}}} />
+        <div>
         <h1>{{name.$t}}</h1>
         <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
         <!-- <h4>Pet ID: {{id.$t}}</h3> -->
         <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
         <button value={{id.$t}} class='searchSaveButton'>Save to Favorites</button>
-        <!-- <hr/> -->
+      </div>
       </div>
     </script>
 
+
     <!-- handlebars template for RANDOM pets when landing is in desktop -->
-
-    <!-- <div class="card">
-      <img src="img_avatar.png" alt="Avatar" style="width:100%">
-      <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-      </div>
-    </div> -->
-
-
-    <!-- css for the card:
-    .card {
-        /* Add shadows to create the "card" effect */
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        transition: 0.3s;
-    }
-
-    /* On mouse-over, add a deeper shadow */
-    .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-
-    /* Add some padding inside the card container */
-    .container {
-        padding: 2px 16px;
-    }
-
-
-   -->
-
     <script id="landingRandom" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
         <img src={{{media.photos.photo.0.$t}}} />
-        <h1>{{name.$t}}</h1>
-        <h3>Breed: {{breeds.breed.$t}}</h3>
-        <h3>Gender: {{sex.$t}}</h3>
-        <!-- <h3>Pet ID: {{id.$t}}</h3> -->
-        <button value={{id.$t}} class='randModalBtn'>Interested!</button>
-        <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
-        <!-- <hr/> -->
+          <div class="petContainer">
+            <h1>{{name.$t}}</h1>
+            <h3>Breed: {{breeds.breed.$t}}</h3>
+            <h3>Gender: {{sex.$t}}</h3>
+            <button value={{id.$t}} class='randModalBtn'>Interested!</button>
+            <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
+          </div>
       </div>
     </script>
 
@@ -188,12 +160,12 @@
           </form>
         </div>
       </section>
-    </section>  <!--end search section -->
-
-      <section id="matches" class="searchSection">
+      <section id="matches" class="matchSection">
         <h3 id="noMatches"></h3>
         <button type="button" id="searchAgain" name="reSearch">Search Again</button>
       </section>
+    </section>  <!--end search section -->
+
 
 <!--this is where the random pets will display  -->
       <section id="random">
@@ -210,9 +182,6 @@
           </div>
         </div>
         <a href="#top" class="smoothScroll">Back to top</a>
-
-
-
       </section>
 
       <section id="resources">

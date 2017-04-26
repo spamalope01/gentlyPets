@@ -14,7 +14,9 @@
 //get the value of the selected random pet
   favs.randomSelectedPet = function() {
     $('#random').off().on('click', '.randomSaveButton', function(){
+      console.log('clicked the fave button, yo');
       favs.favoritePet = $(this).val();
+      console.log('favs', favs.favoritePet);
       favs.reservePet(favs.favoritePet, randomPets.all);
       // favs.storeFavorite(favs.favoritePet);
     });

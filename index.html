@@ -11,9 +11,11 @@
     <!-- <link rel="stylesheet" href="/Styles/modal.css"> -->
     <link rel="stylesheet" href="Styles/base.css">
     <link rel="stylesheet" href="Styles/layout.css">
-    <link rel="stylesheet" href="Styles/module.css">
+    <link rel="stylesheet" href="Styles/favoritesModule.css">
+    <link rel="stylesheet" href="Styles/randomModule.css">
     <link rel="stylesheet" href="Styles/icons.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ek+Mukta" rel="stylesheet">
 
     <!-- handlebars template for results after filtering -->
     <script id="search-result" type="text/x-handlebars-template">
@@ -22,38 +24,68 @@
         <h1>{{name.$t}}</h1>
         <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
-        <h4>Pet ID: {{id.$t}}</h3>
+        <!-- <h4>Pet ID: {{id.$t}}</h3> -->
         <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
         <button value={{id.$t}} class='searchSaveButton'>Save to Favorites</button>
-        <hr/>
+        <!-- <hr/> -->
       </div>
     </script>
 
-    <!-- handlebars template for random pets when landing is in desktop -->
+    <!-- handlebars template for RANDOM pets when landing is in desktop -->
+
+    <!-- <div class="card">
+      <img src="img_avatar.png" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>John Doe</b></h4>
+        <p>Architect & Engineer</p>
+      </div>
+    </div> -->
+
+
+    <!-- css for the card:
+    .card {
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    /* Add some padding inside the card container */
+    .container {
+        padding: 2px 16px;
+    }
+
+
+   -->
+
     <script id="landingRandom" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
         <img src={{{media.photos.photo.0.$t}}} />
         <h1>{{name.$t}}</h1>
-        <h3>Breed: {{breed.$t}}</h3>
+        <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
-        <h3>Pet ID: {{id.$t}}</h3>
-        <button value={{id.$t}} class='modalBtn'>Interested!</button>
+        <!-- <h3>Pet ID: {{id.$t}}</h3> -->
+        <button value={{id.$t}} class='randModalBtn'>Interested!</button>
         <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
-        <hr/>
+        <!-- <hr/> -->
       </div>
     </script>
 
-    <!-- handlebars template for favorites pets when landing is in desktop -->
+    <!-- handlebars template for FAVORITE pets when landing is in desktop -->
     <script id="landingFavorites" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
         <img src={{{media.photos.photo.0.$t}}} />
         <h1>{{name.$t}}</h1>
-        <h3>Breed: {{breed.$t}}</h3>
+        <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
-        <h3>Pet ID: {{id.$t}}</h3>
-        <button value={{id.$t}} class='modalBtn'>Interested!</button>
+        <!-- <h3>Pet ID: {{id.$t}}</h3> -->
+        <button value={{id.$t}} class='faveModalBtn'>Interested!</button>
         <button value={{id.$t}} class='removeFavsButton'>Remove</button>
-        <hr/>
+        <!-- <hr/> -->
       </div>
     </script>
 
@@ -95,22 +127,24 @@
   <body>
     <header>
       <a name="top"></a>
-      <nav>
-        <div class="icon-menu"></div>
-        <ul class="globalNav">
-          <li><a href="#search" class="smoothScroll">Search</a></li>
-          <li><a href="#random" class="smoothScroll">Random Pet</a></li>
-          <li><a href="#resources" class="smoothScroll">Resources</a></li>
-          <li><a href="#favorites" class="smoothScroll">Favorites</a></li>
-          <li><a href="#vet" class="smoothScroll">Find a Vet</a></li>
-        </ul>
-      </nav>
+        <nav class="stickyNav">
+          <h1>Gently Used Pets</h1>
+          <div class="icon-menu"></div>
+          <ul class="globalNav">
+            <li><a href="#search" class="smoothScroll">Search</a></li>
+            <li><a href="#random" class="smoothScroll">Random Pet</a></li>
+            <li><a href="#resources" class="smoothScroll">Resources</a></li>
+            <li><a href="#favorites" class="smoothScroll">Favorites</a></li>
+            <li><a href="#vet" class="smoothScroll">Find a Vet</a></li>
+          </ul>
+        </nav>
     </header>
     <main>
-      <section id="search">
+      <section id="search">  <!--start search section -->
+
         <div class="searchContainer searchSection">
           <h2>I'm looking for a...</h2>
-          <form class="searchForm" action="index.html" method="post">
+          <form id="searchForm" action="index.html" method="post">
             <button class="searchPetButton" type="button" name="Dog" value="dog">Dog</button>
             <button class="searchPetButton" type="button" name="Cat" value="cat">Cat</button>
             <button class="searchPetButton" type="button" name="Reptile" value="reptile">Reptile</button>
@@ -137,21 +171,21 @@
         <div id="filterResultsWrapper">
           <h2>I would like a new pet who is...</h2>
           <p>Please try to limit your criteria to 3 options for best results</p>
-          <input type="checkbox" id='seniorCheckbox' value="Senior"><span class='page-text'>Senior</span></input>
-          <input type="checkbox" id="specialCheckbox" value="specialNeeds"><span class='page-text'>Special Needs</span></input>
-          <select id="petLargeness" class="" name="">
-            <option value="Size of Pet">Size Of Pet</option>
-            <option value="S">Small</option>
-            <option value="M">Medium</option>
-            <option value="L">Large</option>
-          </select>
-          <form>
-            <div id="gender">
-              <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
-              <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
-            </div>
-            </form>
+          <form id="pareForm" action="index.html" method="post">
+            <input type="checkbox" id='seniorCheckbox' value="Senior"><span class='page-text'>Senior</span></input>
+            <input type="checkbox" id="specialCheckbox" value="specialNeeds"><span class='page-text'>Special Needs</span></input>
+            <select id="petLargeness" class="" name="">
+              <option value="Size of Pet">Size Of Pet</option>
+              <option value="S">Small</option>
+              <option value="M">Medium</option>
+              <option value="L">Large</option>
+            </select>
+              <div id="gender">
+                <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
+                <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
+              </div>
             <button type="button" id='showButton' name="showMe">Show Me My Matches</button>
+          </form>
         </div>
       </section>
     </section>  <!--end search section -->
@@ -166,9 +200,9 @@
         <h2>Here are some of our favorite pets just waiting on furever homes.</h2>
 
         <!--random details modal-->
-        <div id="randomModal" class="modal">
-          <div class="modalContent">
-            <button class ="closeModal" type="button" name="closeModal">CLOSE</button>
+        <div id="randomModal" class="randDetailModal">
+          <div class="randModalContent">
+            <button class ="randCloseModal" type="button" name="closeModal">CLOSE</button>
             <p>modal text here</p>
             <section id="randomDetails">
 
@@ -182,58 +216,89 @@
       </section>
 
       <section id="resources">
-        <h1>Resources to Help You With Your New Adoption</h1>
-        <a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a>
-        <a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a>
-        <a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a>
-        <h2>Pet Insurance</h2>
-        <a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance">consumersadvocate.org</a>
-        <a href="http://www.healthypawspetinsurance.com/">Healthy Paws Pet Insurance</a>
-        <a href="http://www.gopetplan.com/">Pet Plan</a>
-        <a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a>
-        <h2>Financial Assistance</h2>
-        <a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a>
-        <a href="http://www.carecredit.com/vetmed">Care Credit</a>
-        <h2>Welcoming a Special Needs Pet to Your Home</h2>
-        <h2>Special Needs Pets Medical Supplies</h2>
-        <a href="http://www.handicappedpets.com/">handicappedpets.com</a>
-        <a href="http://hpets.org/">hpets.org</a>
-        <a href="http://www.k9carts.com/">k9carts.com</a>
-        <a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a>
-        <a href="#top" class="smoothScroll">Back to top</a>
+        <div id="resourceHeader">
+          <h1>Resources to Help You With Your New Adoption</h1>
+        </div>
+        <div id="adoption" class="resourceGroup">
+          <h2>Adoption</h2>
+          <section id="resourceContent">
+            <a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a>
+            <a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a>
+            <a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a>
+          </section>
+        </div>
+        <div id="insurance" class="resourceGroup">
+          <h2>Pet Insurance</h2>
+          <a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance">consumersadvocate.org</a>
+          <a href="http://www.healthypawspetinsurance.com/">Healthy Paws Pet Insurance</a>
+          <a href="http://www.gopetplan.com/">Pet Plan</a>
+          <a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a>
+        </div>
+        <div id="financial" class="resourceGroup">
+          <h2>Financial Assistance</h2>
+          <a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a>
+          <a href="http://www.carecredit.com/vetmed">Care Credit</a>
+        </div>
+        <div id="supplies" class="resourceGroup">
+          <h2>Special Needs Pets Medical Supplies</h2>
+          <a href="http://www.handicappedpets.com/">handicappedpets.com</a>
+          <a href="http://hpets.org/">hpets.org</a>
+          <a href="http://www.k9carts.com/">k9carts.com</a>
+          <a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a>
+        </div>
+        <a href="#top" id="backTop" class="smoothScroll">Back to top</a>
       </section>
 
       <section id="favorites" class="favePets">
         <h1>Favorites</h1>
+
+
+        <!--favorites details modal-->
+        <div id="faveModal" class="favoritesModal">
+          <div class="modalContent">
+            <button class ="favsCloseModal" type="button" name="closeModal">CLOSE</button>
+            <p>modal text here</p>
+            <section id="faveDetails">
+
+            </section>
+          </div>
+        </div>
+
+
+
+
         <a href="#top" class="smoothScroll">Back to top</a>
       </section>
 
-      <section id="vet" class="vetFinder">
+      <!-- <section id="vet" class="vetFinder">
         <h2>Find a Vetrinarian in Your Area</h2>
         <form class="vetZipForm" action="index.html" method="post">
           <input id="vetZip" type="text" name="name" value="" placeholder="Your Zipcode" required>
           <input class="findVetButton" type="button" name="findVet" value="Search">
         </form>
         <!-- Map will display here -->
-        <div id="vetMap"></div>
+        <!-- <div id="vetMap"></div> -->
 
         <!-- <h3>My Google Maps Demo</h3>
     <div id="map"></div> -->
 
 
-        <a href="#top" class="smoothScroll">Back to top</a>
-      </section>
+        <!-- <a href="#top" class="smoothScroll">Back to top</a>
+      </section> -->
 
       <footer></footer>
     </main>
   </body>
   <script type="text/javascript" src="Scripts/smoothscroll.js"></script>
-  <script src="Scripts/randomPet.js"></script>
   <script src="Scripts/app.js"></script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&callback=initMap">
-  </script>
-  <script src="Scripts/vetFind.js"></script>
+  <script src="Scripts/randomPet.js"></script>
   <script src="Scripts/favorites.js"></script>
+  <!-- <script scr="Scripts/scroll.js"></script> -->
+  <!-- <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&callback=findVet.vetSearch">
+  </script> -->
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?&location=%radius=5000&&rankby=distance&type=veterinary_care&key=AIzaSyCRn9GzQyU1uC7ckCXrxuMy6ik0wk59ZRo&libraries=places"></script> -->
+  <!-- <script src="Scripts/vetFind.js"></script> -->
+
 
 </html>

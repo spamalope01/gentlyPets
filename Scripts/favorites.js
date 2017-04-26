@@ -14,7 +14,9 @@
 //get the value of the selected random pet
   favs.randomSelectedPet = function() {
     $('#random').off().on('click', '.randomSaveButton', function(){
+      console.log('clicked the fave button, yo');
       favs.favoritePet = $(this).val();
+      console.log('favs', favs.favoritePet);
       favs.reservePet(favs.favoritePet, randomPets.all);
       // favs.storeFavorite(favs.favoritePet);
     });
@@ -48,6 +50,12 @@
         var html = template(e);
         $('#favorites').append(html);
       });
+      $('.faveModalBtn').off().on('click', function() {
+        console.log('hit the interested fave button');
+        favs.favSpecs = $(this).val();
+        $('div.favoritesModal').toggleClass('favModal-show');
+        favs.viewDetails(favs.favSpecs);
+      });
     } else {
       $('#favorites').html('<h2>You have no pets saved yet</h2>');
     }
@@ -75,10 +83,31 @@
 
 //left to do:
 // need to make sure that a user can view a saved pet's details.
+
 // need to wire up the remove button
 //remove should be just a 'this' then pop (or whatever it is to remove an item from an array) from the favoritePets.all.
 //also have to then pass the new favoritePets.all to local storage so that when the page loads next time, it will reflect the removed pet.
 
+  favs.viewDetails = function(pet) {
+    favs.savedPets.forEach(function(elem) {
+      if(pet === elem.id.$t){
+        console.log('pet is equal');
+        var target = $('#petDetails').html();
+        var skeleton = Handlebars.compile(target);
+        var hyperText = skeleton(elem);
+        $('#faveDetails').append(hyperText);
+      }
+    });
+    favs.closeModal();
+  };
+
+
+  favs.closeModal = function() {
+    $('.favsCloseModal').off().on('click', function() {
+      $('div.favoritesModal').toggleClass('favModal-show');
+      $('#faveDetails').empty();
+    });
+  };
 
 
 
@@ -91,7 +120,11 @@
     favs.randomSelectedPet();
     favs.searchSelectedPet();
     favs.displaySavedPets();
+
     favs.removeFavorite();
+
+    favs.viewDetails();
+
   });
 
 

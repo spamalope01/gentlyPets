@@ -1,5 +1,17 @@
 // this is the Ajax call to the petfinder api
 
+$(window).scroll(function() {
+  var scroll = $(window).scrollTop();
+
+  if (scroll >= 50) {
+    $('.stickyNav').addClass('darkNav');
+  } else {
+    $('.stickyNav').removeClass('darkNav');
+  }
+});
+
+
+
 (function(module) {
   var pets = {};
   pets.$petWanted = null;
@@ -93,7 +105,9 @@
   };
 
   pets.animal_wanted_click = function() {
-    $('.searchForm').off().on('click', '.searchPetButton', function(e) {
+    console.log('animal_wanted_click is live');
+    $('#searchForm').off().on('click', '.searchPetButton', function(e) {
+      console.log('clicked the pet button');
       pets.$petWanted = $(this).val();
       console.log(pets.$petWanted);
       $('#noMatches').text('');
@@ -112,6 +126,7 @@
   };
 
   pets.numberReturned = function() {
+    $('.searchContainer').hide();
     $('#numResults').show();
     $('#numMatches').html(pets.all.length);
     pets.showFilters();
@@ -122,6 +137,10 @@
       e.preventDefault();
       $('#numResults').hide();
       $('#filterOptions').show();
+      pets.snr_spl();
+      pets.howBig();
+      pets.assignedGender();
+      pets.pareDown();
     });
   };
 
@@ -162,8 +181,9 @@
 
 
   pets.pareDown = function() {
-    $('#showButton').off().on('click', function(){
-      console.log('running pareDown');
+    console.log('running pareDown');
+    $('#pareForm').off().on('click', '#showButton', function(){
+      console.log('clicked show me');
       if (pets.$seniorPet || pets.$specialPet) {
         pets.filtered = pets.all
         .filter(function(pet) {
@@ -181,6 +201,7 @@
         pets.noMatch();
         $('#matches').show();
         pets.displayMatches();
+        console.log('called displayMatches');
       } else {
         console.log('you have to pick something');
       }
@@ -221,11 +242,11 @@
   };
 
   $(document).ready(function() {
+    pets.animal_wanted_click();
     $('.searchSection').hide();
     $('.searchContainer').show();
     pets.equalHeights();
     // $('.pet-summary-element').equalHeights();
-    pets.animal_wanted_click();
     pets.searchClick();
     pets.snr_spl();
     pets.howBig();

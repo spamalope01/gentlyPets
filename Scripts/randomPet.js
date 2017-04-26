@@ -5,6 +5,7 @@
   var btn = $('.modalBtn');
   var span = $('.closeModal')[0];
 
+// make an api call and get back 6 random pets
   randomPets.getRandom = function() {
     console.log('running getRandom');
     $.getJSON('https://api.petfinder.com/pet.getRandom?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&age=Senior&output=full&count=6&callback=?')
@@ -19,7 +20,7 @@
   });
   };
 
-  //
+  //display the 6 random pets on the page
   randomPets.displayRandom = function() {
     randomPets.all.forEach(function(e){
       var source   = $("#landingRandom").html();
@@ -27,22 +28,22 @@
       var html    = template(e);
       $('#random').append(html);
     });
-    $('.modalBtn').off().on('click', function() {
+    $('.randModalBtn').off().on('click', function() {
       randomPets.randomSpecs = $(this).val();
-      $('div.modal').toggleClass('modal-show');
+      $('div.randDetailModal').toggleClass('randModal-show');
       randomPets.viewDetails(randomPets.randomSpecs);
     });
   };
-  $('.closeModal').off().on('click', function() {
-    $('div.modal').toggleClass('modal-show');
+  $('.randCloseModal').off().on('click', function() {
+    $('div.randDetailModal').toggleClass('randModal-show');
     $('#randomDetails').empty();
   });
 
+// show details of the selected random pet
   randomPets.viewDetails = function(pet) {
     randomPets.all.forEach(function(elem) {
       if(pet === elem.id.$t){
         console.log('pet is equal');
-        // console.log('elem id is ' + elem.id.$t);
         var target = $('#petDetails').html();
         var skeleton = Handlebars.compile(target);
         var hyperText = skeleton(elem);

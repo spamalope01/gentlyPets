@@ -1,4 +1,4 @@
-// this is the Ajax call to the petfinder api
+ // this is the Ajax call to the petfinder api
 
 $(window).scroll(function() {
   var scroll = $(window).scrollTop();
@@ -209,12 +209,14 @@ $(window).scroll(function() {
   };
 
   pets.displayMatches = function() {
+    console.log('displayMatches is running, yo');
     pets.filtered.forEach(function(e){
       var source = $('#search-result').html();
       var template = Handlebars.compile(source);
       var html = template(e);
       $('#matches').append(html);
     });
+    // $('#search').hide();
     $('.searchSection').hide();
     $('#random').hide();
   };

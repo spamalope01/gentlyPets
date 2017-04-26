@@ -105,7 +105,9 @@ $(window).scroll(function() {
   };
 
   pets.animal_wanted_click = function() {
-    $('.searchForm').off().on('click', '.searchPetButton', function(e) {
+    console.log('animal_wanted_click is live');
+    $('#searchForm').off().on('click', '.searchPetButton', function(e) {
+      console.log('clicked the pet button');
       pets.$petWanted = $(this).val();
       console.log(pets.$petWanted);
       $('#noMatches').text('');
@@ -124,6 +126,7 @@ $(window).scroll(function() {
   };
 
   pets.numberReturned = function() {
+    $('.searchContainer').hide();
     $('#numResults').show();
     $('#numMatches').html(pets.all.length);
     pets.showFilters();
@@ -134,6 +137,10 @@ $(window).scroll(function() {
       e.preventDefault();
       $('#numResults').hide();
       $('#filterOptions').show();
+      pets.snr_spl();
+      pets.howBig();
+      pets.assignedGender();
+      pets.pareDown();
     });
   };
 
@@ -174,8 +181,9 @@ $(window).scroll(function() {
 
 
   pets.pareDown = function() {
-    $('#showButton').off().on('click', function(){
-      console.log('running pareDown');
+    console.log('running pareDown');
+    $('#pareForm').off().on('click', '#showButton', function(){
+      console.log('clicked show me');
       if (pets.$seniorPet || pets.$specialPet) {
         pets.filtered = pets.all
         .filter(function(pet) {
@@ -193,6 +201,7 @@ $(window).scroll(function() {
         pets.noMatch();
         $('#matches').show();
         pets.displayMatches();
+        console.log('called displayMatches');
       } else {
         console.log('you have to pick something');
       }
@@ -233,11 +242,11 @@ $(window).scroll(function() {
   };
 
   $(document).ready(function() {
+    pets.animal_wanted_click();
     $('.searchSection').hide();
     $('.searchContainer').show();
     pets.equalHeights();
     // $('.pet-summary-element').equalHeights();
-    pets.animal_wanted_click();
     pets.searchClick();
     pets.snr_spl();
     pets.howBig();

@@ -14,7 +14,9 @@
 //get the value of the selected random pet
   favs.randomSelectedPet = function() {
     $('#random').off().on('click', '.randomSaveButton', function(){
+      console.log('clicked the fave button, yo');
       favs.favoritePet = $(this).val();
+      console.log('favs', favs.favoritePet);
       favs.reservePet(favs.favoritePet, randomPets.all);
       // favs.storeFavorite(favs.favoritePet);
     });
@@ -52,7 +54,6 @@
         console.log('hit the interested fave button');
         favs.favSpecs = $(this).val();
         $('div.favoritesModal').toggleClass('favModal-show');
-        // $('div.randModal').hide();
         favs.viewDetails(favs.favSpecs);
       });
     } else {
@@ -67,7 +68,6 @@
     favs.savedPets.forEach(function(elem) {
       if(pet === elem.id.$t){
         console.log('pet is equal');
-        // console.log('elem id is ' + elem.id.$t);
         var target = $('#petDetails').html();
         var skeleton = Handlebars.compile(target);
         var hyperText = skeleton(elem);

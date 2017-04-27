@@ -112,20 +112,22 @@
         </nav>
     </header>
     <main>
-      <section id="search">  <!--start search section -->
+
+      <!--start search section -->
+      <section id="search">
 
         <div class="searchContainer searchSection">
           <h2>I'm looking for a...</h2>
           <form id="searchForm" action="index.html" method="post">
-            <button class="searchPetButton" type="button" name="Dog" value="dog">Dog</button>
-            <button class="searchPetButton" type="button" name="Cat" value="cat">Cat</button>
-            <button class="searchPetButton" type="button" name="Reptile" value="reptile">Reptile</button>
-            <button class="searchPetButton" type="button" name="SmallFurry" value="smallfurry">Small &amp Furry</button>
+            <button class="searchPetButton btn" type="button" name="Dog" value="dog">Dog</button>
+            <button class="searchPetButton btn" type="button" name="Cat" value="cat">Cat</button>
+            <button class="searchPetButton btn" type="button" name="Reptile" value="reptile">Reptile</button>
+            <button class="searchPetButton btn" type="button" name="SmallFurry" value="smallfurry">Small &amp Furry</button>
           </form>
           <h2>And I live in...</h2>
           <form class="zipForm" action="index.html" method="post">
             <input id="zipFind" type="text" name="name" value="" placeholder="zipcode" required>
-            <input class="findPetBtn" type="button" name="findIt" value="Search">
+            <input class="findPetBtn btn" type="button" name="findIt" value="Search">
           </form>
         </div>
 
@@ -135,7 +137,7 @@
           <h2 id="numMatches"></h2>
           <h2>potential matches for you!</h2>
           <h2>Next we'll filter down some of those results to find the best match for you.</h2>
-          <button id='filterButton'>OK</button>
+          <button id='filterButton btn'>OK</button>
         </div>
       </section>
 
@@ -164,7 +166,8 @@
         <h3 id="noMatches"></h3>
         <button type="button" id="searchAgain" name="reSearch">Search Again</button>
       </section>
-    </section>  <!--end search section -->
+    </section>
+    <!--end search section -->
 
 
 <!--this is where the random pets will display  -->

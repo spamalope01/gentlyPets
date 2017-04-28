@@ -218,6 +218,7 @@ $(window).scroll(function() {
     });
     // $('#search').hide();
     $('.searchSection').hide();
+    $('#searchAgain').show();
     $('#random').hide();
   };
 
@@ -239,14 +240,15 @@ $(window).scroll(function() {
     pets.displayFullPetDetails(pets.selectedPet);
   };
 
-  pets.equalHeights = function(){
-    $('.pet-summary-element').matchHeight();
-  };
+  // pets.equalHeights = function(){
+  //   $('.pet-summary-element').matchHeight();
+  // };
 
   $(document).ready(function() {
     pets.animal_wanted_click();
     $('.searchSection').hide();
     $('.searchContainer').show();
+    $('#searchAgain').hide();
     pets.equalHeights();
     // $('.pet-summary-element').equalHeights();
     pets.searchClick();

@@ -66,6 +66,7 @@ nav {
   width: 55em;
   background:rgba(0,0,0,0.5);
 }
+
 #random {
   position: relative;
   background-color: #fff;
@@ -89,17 +90,27 @@ nav {
   width: auto;
 }
 
-button {
-  border-radius: 5px;
+.btn {
+  border-radius: .25rem;
   color: black;
-  background-color: green;
+  height: .5%;
+  background-color: #63D1F4;
+  border-color: #63D1F4;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  vertical-align: middle;
+  padding: .5em 1rem;
+  font-size: 1rem;
+  transition: all .2s ease-in-out;
+
 }
 
-input[type=button] {
+/*input[type=button] {
   border-radius: 5px;
   color: black;
   background-color: green;
-}
+}*/
 
 .searchSection h2 {
   text-align: center;
@@ -109,9 +120,9 @@ input[type=button] {
   text-align: center;
 }
 
-.zipForm {
+/*.zipForm {
   margin-bottom: 2em;
-}
+}*/
 
 h1, h2, h3, p, a {
   font-family: 'Ek Mukta', sans-serif;

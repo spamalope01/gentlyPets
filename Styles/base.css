@@ -68,6 +68,8 @@ nav {
 }
 
 #random {
+  display: flex;
+  flex-flow: row wrap;
   position: relative;
   background-color: #fff;
   background-size: 100%;

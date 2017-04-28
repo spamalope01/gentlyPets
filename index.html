@@ -20,7 +20,7 @@
     <!-- handlebars template for results after filtering -->
     <script id="search-result" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
-        <img src={{{media.photos.photo.1.$t}}} />
+        <img src={{{media.photos.photo.2.$t}}} />
         <div>
         <h1>{{name.$t}}</h1>
         <h3>Breed: {{breeds.breed.$t}}</h3>
@@ -35,22 +35,24 @@
 
     <!-- handlebars template for RANDOM pets when landing is in desktop -->
     <script id="landingRandom" type="text/x-handlebars-template">
-      <div class='pet-summary-element'>
-        <img src={{{media.photos.photo.0.$t}}} />
-          <div class="petContainer">
-            <h1>{{name.$t}}</h1>
-            <h3>Breed: {{breeds.breed.$t}}</h3>
-            <h3>Gender: {{sex.$t}}</h3>
-            <button value={{id.$t}} class='randModalBtn'>Interested!</button>
-            <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
-          </div>
+      <div class="petCard">
+        <div class='pet-summary-element'>
+          <img src={{{media.photos.photo.2.$t}}} />
+            <div class="petContainer">
+              <h1>{{name.$t}}</h1>
+              <h3>Breed: {{breeds.breed.$t}}</h3>
+              <h3>Gender: {{sex.$t}}</h3>
+              <button value={{id.$t}} class='randModalBtn'>Interested!</button>
+              <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
+            </div>
+        </div>
       </div>
     </script>
 
     <!-- handlebars template for FAVORITE pets when landing is in desktop -->
     <script id="landingFavorites" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
-        <img src={{{media.photos.photo.0.$t}}} />
+        <img src={{{media.photos.photo.2.$t}}} />
         <h1>{{name.$t}}</h1>
         <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>

@@ -5,10 +5,10 @@
   var btn = $('.modalBtn');
   var span = $('.closeModal')[0];
 
-// make an api call and get back 6 random pets
+// make an api call and get back 8 random pets
   randomPets.getRandom = function() {
     console.log('running getRandom');
-    $.getJSON('https://api.petfinder.com/pet.getRandom?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&age=Senior&output=full&count=6&callback=?')
+    $.getJSON('https://api.petfinder.com/pet.getRandom?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&age=Senior&output=full&count=8&callback=?')
   .done(function(petApiData) {
     console.log(petApiData);
     randomPets.all = [];

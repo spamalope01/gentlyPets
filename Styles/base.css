@@ -7,7 +7,7 @@ body {
 }
 
 section {
-  overflow: auto;
+  /*overflow: auto;*/
 }
 
 nav {
@@ -67,9 +67,11 @@ nav {
   background:rgba(0,0,0,0.5);
 }
 
-#random {
+.randomSection, .favePets {
   display: flex;
+  /*align-items: center;*/
   flex-flow: row wrap;
+  /*justify-content: center;*/
   position: relative;
   background-color: #fff;
   background-size: 100%;
@@ -79,17 +81,27 @@ nav {
   height: auto;
   }
 
-#favorites {
-  position: relative;
-}
-
-#resources {
-  position: relative;
+.resourceSection {
   background: url('../Images/seniorCatFloor.jpeg') no-repeat fixed;
   background-size: 100%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   color: white;
-  width: auto;
+}
+
+.resourceTransparent{
+  z-index: 5;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid white;
+  width: 100%;
+  background:rgba(0,0,0,0.5);
+}
+
+.resourceItems {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }
 
 .btn {
@@ -106,6 +118,10 @@ nav {
   font-size: 1rem;
   transition: all .2s ease-in-out;
 
+}
+
+.randomHeader, .resourceHeader, .faveHeader {
+  margin-left: 2%;
 }
 
 /*input[type=button] {

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Gently Used Pets</title>
-    <style>
-    </style>
+    <!--<style> -->
+    <!-- </style> -->
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <link rel="stylesheet" href="Styles/normalize.css">
@@ -35,7 +35,6 @@
 
     <!-- handlebars template for RANDOM pets when landing is in desktop -->
     <script id="landingRandom" type="text/x-handlebars-template">
-      <div class="petCard">
         <div class='pet-summary-element'>
           <img src={{{media.photos.photo.2.$t}}} />
             <div class="petContainer">
@@ -46,7 +45,6 @@
               <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
             </div>
         </div>
-      </div>
     </script>
 
     <!-- handlebars template for FAVORITE pets when landing is in desktop -->
@@ -173,8 +171,8 @@
 
 
 <!--this is where the random pets will display  -->
-      <section id="random">
-        <h2>Here are some of our favorite pets just waiting on furever homes.</h2>
+<h1 class="randomHeader">Here are some of our favorite pets just waiting on furever homes.</h1>
+      <section id="random" class="randomSection">
 
         <!--random details modal-->
         <div id="randomModal" class="randDetailModal">
@@ -189,42 +187,53 @@
         <a href="#top" class="smoothScroll">Back to top</a>
       </section>
 
-      <section id="resources">
-        <div id="resourceHeader">
-          <h1>Resources to Help You With Your New Adoption</h1>
-        </div>
-        <div id="adoption" class="resourceGroup">
-          <h2>Adoption</h2>
-          <section id="resourceContent">
-            <a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a>
-            <a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a>
-            <a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a>
-          </section>
-        </div>
-        <div id="insurance" class="resourceGroup">
-          <h2>Pet Insurance</h2>
-          <a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance">consumersadvocate.org</a>
-          <a href="http://www.healthypawspetinsurance.com/">Healthy Paws Pet Insurance</a>
-          <a href="http://www.gopetplan.com/">Pet Plan</a>
-          <a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a>
-        </div>
-        <div id="financial" class="resourceGroup">
-          <h2>Financial Assistance</h2>
-          <a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a>
-          <a href="http://www.carecredit.com/vetmed">Care Credit</a>
-        </div>
-        <div id="supplies" class="resourceGroup">
-          <h2>Special Needs Pets Medical Supplies</h2>
-          <a href="http://www.handicappedpets.com/">handicappedpets.com</a>
-          <a href="http://hpets.org/">hpets.org</a>
-          <a href="http://www.k9carts.com/">k9carts.com</a>
-          <a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a>
-        </div>
+
+<!--this is where the resources will display  -->
+      <section id="resources" class="resourceSection">
+        <div class="resourceTransparent">
+
+          <h1 class="resourceHeader">Resources to Help You With Your New Adoption</h1>
+        <div class="resourceItems">
+
+          <div id="adoption" class="resourceGroup">
+            <h2>Adoption</h2>
+            <section id="resourceContent">
+              <a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a>
+              <a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a>
+              <a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a>
+            </section>
+          </div>
+
+
+          <div id="insurance" class="resourceGroup">
+            <h2>Pet Insurance</h2>
+            <a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance">consumersadvocate.org</a>
+            <a href="http://www.healthypawspetinsurance.com/">Healthy Paws Pet Insurance</a>
+            <a href="http://www.gopetplan.com/">Pet Plan</a>
+            <a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a>
+          </div>
+          <div id="financial" class="resourceGroup">
+            <h2>Financial Assistance</h2>
+            <a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a>
+            <a href="http://www.carecredit.com/vetmed">Care Credit</a>
+          </div>
+
+
+          <div id="supplies" class="resourceGroup">
+            <h2>Special Needs Pets Medical Supplies</h2>
+            <a href="http://www.handicappedpets.com/">handicappedpets.com</a>
+            <a href="http://hpets.org/">hpets.org</a>
+            <a href="http://www.k9carts.com/">k9carts.com</a>
+            <a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a>
+          </div>
+      </div>
         <a href="#top" id="backTop" class="smoothScroll">Back to top</a>
+      </div>
       </section>
 
+<!--this is where the favorite pets will display  -->
+<h1 class="faveHeader">Your Saved Favorites</h1>
       <section id="favorites" class="favePets">
-        <h1>Favorites</h1>
 
 
         <!--favorites details modal-->

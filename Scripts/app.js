@@ -216,7 +216,7 @@ $(window).scroll(function() {
       var html = template(e);
       $('#matches').append(html);
     });
-    // $('#search').hide();
+    $('.randomHeader').hide();
     $('.searchSection').hide();
     $('#searchAgain').show();
     $('#random').hide();

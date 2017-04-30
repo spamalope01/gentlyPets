@@ -126,15 +126,15 @@
           </form>
           <h2>And I live in...</h2>
           <form class="zipForm" action="index.html" method="post">
-            <input id="zipFind" type="text" name="name" value="" placeholder="zipcode" required>
+            <input class="enterZip" id="zipFind" type="text" name="name" value="" placeholder="Zipcode" required>
             <input class="findPetBtn btn" type="button" name="findIt" value="Search">
           </form>
         </div>
 
       <section id="numResults" class="searchSection">
-        <div id="initialFinds">
+        <div class="initialFinds">
           <h2>We found</h2>
-          <h2 id="numMatches"></h2>
+          <h1 id="numMatches"></h1>
           <h2>potential matches for you!</h2>
           <h2>Next we'll filter down some of those results to find the best match for you.</h2>
           <button id='filterButton' class="btn">OK</button>
@@ -142,29 +142,39 @@
       </section>
 
       <section id="filterOptions" class="searchSection">
-        <div id="filterResultsWrapper">
+        <div class="filterResultsWrapper">
           <h2>I would like a new pet who is...</h2>
-          <p>Please try to limit your criteria to 3 options for best results</p>
+          <p>(Please try to limit your criteria to 3 options for best results.)</p>
+
           <form id="pareForm" action="index.html" method="post">
-            <input type="checkbox" id='seniorCheckbox' value="Senior"><span class='page-text'>Senior</span></input>
-            <input type="checkbox" id="specialCheckbox" value="specialNeeds"><span class='page-text'>Special Needs</span></input>
-            <select id="petLargeness" class="" name="">
+
+            <div class="genderSelect" id="gender">
+              <label class="sexLabel" for="M"><input class="sexRadio" type="radio" name="gender" value="M"> Male</label>
+              <label class="sexLabel" for="F"><input class="sexRadio" type="radio" name="gender" value="F"> Female</label>
+            </div>
+
+            <div class="ageSizeSelect">
+              <label class="ageSizeLabel" for="Senior"><input type="checkbox" class="pareCheck" id='seniorCheckbox' value="Senior"> Senior</label>
+              <label class="ageSizeLabel" for="specialNeeds"><input type="checkbox" class="pareCheck" id="specialCheckbox" value="specialNeeds"> Special Needs</label>
+
+            <select id="petLargeness" class="pareSelect btn" name="selectSize">
               <option value="Size of Pet">Size Of Pet</option>
               <option value="S">Small</option>
               <option value="M">Medium</option>
               <option value="L">Large</option>
             </select>
-              <div id="gender">
-                <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
-                <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
-              </div>
-            <button type="button" id='showButton' name="showMe">Show Me My Matches</button>
+          </div>
+
+
+            <button type="button" class="matchesButton btn" id='showButton' name="showMe">Show Me My Matches</button>
           </form>
         </div>
       </section>
+
+
       <section id="matches" class="matchSection">
         <h3 id="noMatches"></h3>
-        <button type="button" id="searchAgain" name="reSearch">Search Again</button>
+        <button type="button" class="btn" id="searchAgain" name="reSearch">Search Again</button>
       </section>
     </section>
     <!--end search section -->

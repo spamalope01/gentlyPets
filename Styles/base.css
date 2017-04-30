@@ -80,9 +80,13 @@ nav {
   }
 
 .matchSection {
+  /*z-index: 1;*/
   display: flex;
   flex-flow: row wrap;
   position: relative;
+  /*width: 100%;*/
+  /*width: auto;*/
+  height: auto;
   /*background-size: 100%;*/
   color: #000;
   margin-top: 20%;

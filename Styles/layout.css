@@ -44,14 +44,6 @@ text-transform: uppercase;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.resourceGroup:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.petContainer, .resourceGroup {
-  padding: 2px 16px;
-}
-
 .pet-summary-element img {
   border-radius: 5px 5px 0 0;
   max-height: 250px;
@@ -62,26 +54,63 @@ text-transform: uppercase;
   margin-bottom: .5em;
 }
 
-/*.resourcesSection a {
-  display: block;*/
-  /*color: #fff;*/
-/*}*/
+.resourceGroup:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.petContainer, .resourceGroup {
+  padding: 2px 16px;
+}
+
+
+.initialFinds, .filterResultsWrapper{
+  text-align: center;
+}
+
+.initialFinds button {
+  margin-bottom: 2%;
+}
+
+.filterResultsWrapper h2{
+  display: inline;
+}
+
+.filterResultsWrapper p{
+  /*display:block;*/
+  margin-top: .3%;
+}
+
+
+.genderSelect {
+  margin-bottom: 2%;
+}
+
+.sexLabel, .ageSizeLabel {
+  margin-right: 4%;
+  margin-bottom: 2%;
+}
+
+.matchesButton {
+  margin-top: 3%;
+  margin-bottom: 3%;
+  color: black;
+}
+
+.enterZip {
+  display: block;
+    width: 100%;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
 
 #vet {
   text-align: center;
 }
 
-/*.resourceGroup {
-  border-radius: 50px;
-  display: inline-block;
-  /*margin: 2em 2em;*/
-  /*margin-top: 3%;*/
-  /*margin-right: 2%;*/
-  /*margin-left: 2%;*/
-  /*border: 1px solid black;*/
-  /*width: 20em;*/
-  /*text-align: center;*/
-/*}*/
 
 
 #random a {

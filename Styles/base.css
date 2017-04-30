@@ -69,9 +69,7 @@ nav {
 
 .randomSection, .favePets {
   display: flex;
-  /*align-items: center;*/
   flex-flow: row wrap;
-  /*justify-content: center;*/
   position: relative;
   background-color: #fff;
   background-size: 100%;
@@ -80,6 +78,16 @@ nav {
   width: auto;
   height: auto;
   }
+
+.matchSection {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  /*background-size: 100%;*/
+  color: #000;
+  margin-top: 20%;
+  margin-bottom: 15%;
+}
 
 .resourceSection {
   background: url('../Images/seniorCatFloor.jpeg') no-repeat fixed;
@@ -124,12 +132,6 @@ nav {
   margin-left: 2%;
 }
 
-/*input[type=button] {
-  border-radius: 5px;
-  color: black;
-  background-color: green;
-}*/
-
 .searchSection h2 {
   text-align: center;
 }
@@ -137,10 +139,6 @@ nav {
 .searchSection form {
   text-align: center;
 }
-
-/*.zipForm {
-  margin-bottom: 2em;
-}*/
 
 h1, h2, h3, p, a {
   font-family: 'Ek Mukta', sans-serif;

@@ -21,14 +21,13 @@
     <script id="search-result" type="text/x-handlebars-template">
       <div class='pet-summary-element'>
         <img src={{{media.photos.photo.2.$t}}} />
-        <div>
-        <h1>{{name.$t}}</h1>
-        <h3>Breed: {{breeds.breed.$t}}</h3>
-        <h3>Gender: {{sex.$t}}</h3>
-        <!-- <h4>Pet ID: {{id.$t}}</h3> -->
-        <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
-        <button value={{id.$t}} class='searchSaveButton'>Save to Favorites</button>
-      </div>
+          <div class="petContainer">
+            <h1>{{name.$t}}</h1>
+            <h3>Breed: {{breeds.breed.$t}}</h3>
+            <h3>Gender: {{sex.$t}}</h3>
+            <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton btn'>Interested!</button>
+            <button value={{id.$t}} class='searchSaveButton btn'>Save to Favorites</button>
+          </div>
       </div>
     </script>
 
@@ -41,8 +40,8 @@
               <h1>{{name.$t}}</h1>
               <h3>Breed: {{breeds.breed.$t}}</h3>
               <h3>Gender: {{sex.$t}}</h3>
-              <button value={{id.$t}} class='randModalBtn'>Interested!</button>
-              <button value={{id.$t}} class='randomSaveButton'>Save to Favorites</button>
+              <button value={{id.$t}} class='randModalBtn btn'>Interested!</button>
+              <button value={{id.$t}} class='randomSaveButton btn'>Save to Favorites</button>
             </div>
         </div>
     </script>
@@ -55,8 +54,8 @@
         <h3>Breed: {{breeds.breed.$t}}</h3>
         <h3>Gender: {{sex.$t}}</h3>
         <!-- <h3>Pet ID: {{id.$t}}</h3> -->
-        <button value={{id.$t}} class='faveModalBtn'>Interested!</button>
-        <button value={{id.$t}} class='removeFavsButton'>Remove</button>
+        <button value={{id.$t}} class='faveModalBtn btn'>Interested!</button>
+        <button value={{id.$t}} class='removeFavsButton btn'>Remove</button>
         <!-- <hr/> -->
       </div>
     </script>
@@ -115,7 +114,7 @@
 
       <!--start search section -->
       <section id="search">
-
+        
         <div class="searchContainer searchSection">
           <h2>I'm looking for a...</h2>
           <form id="searchForm" action="index.html" method="post">

@@ -61,6 +61,7 @@ nav {
   margin-bottom: 5%;
   margin-left: auto;
   margin-right: auto;
+  background-size: 100%;
   color: white;
   border: 1px solid white;
   width: 55em;
@@ -80,17 +81,14 @@ nav {
   }
 
 .matchSection {
-  /*z-index: 1;*/
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row;
+  height: 90%;
   position: relative;
-  /*width: 100%;*/
-  /*width: auto;*/
-  height: auto;
-  /*background-size: 100%;*/
-  color: #000;
-  margin-top: 20%;
-  margin-bottom: 15%;
+  width: auto;
+  background-size: 100%;
+  margin-top: 4%;
+  margin-bottom: 3%;
 }
 
 .resourceSection {

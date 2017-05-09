@@ -40,6 +40,17 @@ text-transform: uppercase;
   text-align: center;
 }
 
+/*.matchElement {
+  margin-top: 3%;
+  margin-right: 2%;
+  margin-left: 2%;
+  width: 5%;
+  max-height: 10%;
+  border-radius: 5px;
+  background-color: #e8e8ee;
+  text-align: center;
+}*/
+
 .pet-summary-element:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -157,6 +168,12 @@ text-transform: uppercase;
 .findPetBtn {
   margin: auto;
   width: 8em;
+}
+
+.redoSearch {
+  /*position: absolute;*/
+  /*bottom: 1%:
+  right: 2%;*/
 }
 
 

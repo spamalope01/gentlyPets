@@ -219,8 +219,8 @@ $(window).scroll(function() {
     $('.randomHeader').hide();
     $('.searchSection').hide();
     // $('.searchConatiner').hide();
-    $('.matchSection').css('z-index', 10);
-    $('.matchSectyion').width("100%");
+    // $('.matchSection').css('z-index', 10);
+    // $('.matchSection').width("100%");
     $('#searchAgain').show();
     $('#random').hide();
   };
@@ -243,17 +243,12 @@ $(window).scroll(function() {
     pets.displayFullPetDetails(pets.selectedPet);
   };
 
-  // pets.equalHeights = function(){
-  //   $('.pet-summary-element').matchHeight();
-  // };
-
   $(document).ready(function() {
     pets.animal_wanted_click();
     $('.searchSection').hide();
     $('.searchContainer').show();
     $('#searchAgain').hide();
     pets.equalHeights();
-    // $('.pet-summary-element').equalHeights();
     pets.searchClick();
     pets.snr_spl();
     pets.howBig();

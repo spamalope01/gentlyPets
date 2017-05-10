@@ -83,7 +83,7 @@ nav {
 .matchSection {
   display: flex;
   flex-flow: row;
-  height: 90%;
+  height: 100%;
   position: relative;
   width: auto;
   background-size: 100%;
@@ -92,32 +92,37 @@ nav {
 }
 
 .resourceSection {
+  position: relative;
   background: url('../Images/seniorCatFloor.jpeg') no-repeat fixed;
   background-size: 100%;
   margin-bottom: 2%;
   color: white;
+  height: 50%;
 }
 
 .resourceTransparent{
   z-index: 5;
-  margin-bottom: 5%;
+  /*margin-bottom: 2%;*/
   margin-left: auto;
   margin-right: auto;
   border: 1px solid white;
   width: 100%;
   background:rgba(0,0,0,0.5);
+  height: 100%;
 }
 
 .resourceItems {
   display: flex;
   align-items: center;
   flex-direction: row;
+  width: 90%;
 }
 
 .btn {
   border-radius: .25rem;
   color: black;
-  height: .5%;
+  height: 7.5%;
+  margin-bottom: 3%;
   background-color: #63D1F4;
   border-color: #63D1F4;
   font-weight: 400;

@@ -218,9 +218,6 @@ $(window).scroll(function() {
     });
     $('.randomHeader').hide();
     $('.searchSection').hide();
-    // $('.searchConatiner').hide();
-    // $('.matchSection').css('z-index', 10);
-    // $('.matchSection').width("100%");
     $('#searchAgain').show();
     $('#random').hide();
   };

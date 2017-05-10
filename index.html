@@ -19,9 +19,9 @@
 
     <!-- handlebars template for results after filtering -->
     <script id="search-result" type="text/x-handlebars-template">
-      <div class='pet-summary-element'>
+      <div class='matchesTile'>
         <img src={{{media.photos.photo.2.$t}}} />
-          <div class="petContainer">
+          <div class="matchesContainer">
             <h1>{{name.$t}}</h1>
             <h3>Breed: {{breeds.breed.$t}}</h3>
             <h3>Gender: {{sex.$t}}</h3>
@@ -170,11 +170,11 @@
         </div>
       </section>
 
-
       <section id="matches" class="matchSection">
         <h3 id="noMatches"></h3>
         <button type="button" class="redoSearch btn" id="searchAgain" name="reSearch">Search Again</button>
       </section>
+
     </section>
     <!--end search section -->
 

@@ -240,6 +240,17 @@ $(window).scroll(function() {
     pets.displayFullPetDetails(pets.selectedPet);
   };
 
+
+  pets.searchAgain = function() {
+    $('#searchAgain').off().on('click', function(){
+      console.log('clicked search again');
+      // $('#searchAgain').hide();
+      // $('.searchSection').show();
+      // $('#matches').hide();
+      // $('#random').show();
+    });
+  };
+
   $(document).ready(function() {
     pets.animal_wanted_click();
     $('.searchSection').hide();

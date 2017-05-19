@@ -174,7 +174,6 @@ $(window).scroll(function() {
       $('#noMatches').text('Sorry there were no pets matching your criteria.  Please choose different options and search again.');
       $('#input-snr-cb').prop('checked', false);
       $('#input-spl-cb').prop('checked', false);
-    // $('#petLargeness').empty();
       $('.sexRadio').prop('checked', false);
     }
   };
@@ -209,7 +208,6 @@ $(window).scroll(function() {
   };
 
   pets.displayMatches = function() {
-    console.log('displayMatches is running, yo');
     pets.filtered.forEach(function(e){
       var source = $('#search-result').html();
       var template = Handlebars.compile(source);
@@ -220,6 +218,7 @@ $(window).scroll(function() {
     $('.searchSection').hide();
     $('#searchAgain').show();
     $('#random').hide();
+    pets.searchAgain();
   };
 
   pets.displayFullPetDetails = function(pet) {
@@ -242,12 +241,21 @@ $(window).scroll(function() {
 
 
   pets.searchAgain = function() {
-    $('#searchAgain').off().on('click', function(){
-      console.log('clicked search again');
-      // $('#searchAgain').hide();
-      // $('.searchSection').show();
-      // $('#matches').hide();
-      // $('#random').show();
+    $('.redoSearch').off().on('click', function(){
+      $('#searchAgain').hide();
+      $('.searchContainer').show();
+      $('#matches').hide();
+      $('#random').show();
+      $('.randomHeader').show();
+      $('.sexRadio').prop('checked', false);
+      $('.pareCheck').prop('checked', false);
+      $('.pareSelect').prop('selectedIndex', 0);
+      $('.sexRadio').prop('checked', false);
+      $('#zipFind').attr('value', '');
+      pets.all = [];
+      pets.filtered = [];
+      console.log('all', pets.all);
+      console.log('filtered', pets.filtered);
     });
   };
 

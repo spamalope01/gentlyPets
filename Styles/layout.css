@@ -160,6 +160,7 @@ text-transform: uppercase;
 }
 
 #searchAgain {
+  z-index: 8;
   position: absolute;
   top: 50%;
   right: 2%;

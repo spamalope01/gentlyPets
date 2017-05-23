@@ -62,31 +62,18 @@
   };
 
 // Remove a pet from favorites
-  favs.removeFavorite = function() {
+  favs.removeFavorite = function(){
     $('#favorites').off().on('click', '.removeFavsButton', function(){
-      console.log('clicked remove');
       var removeVal = $(this).val();
-      console.log(removeVal);
-      favs.savedPets.forEach(function(f){
-        var idx = favs.savedPets.indexOf(f);
-        console.log('index: ' + idx);
-        if(removeVal === f.id.$t) {
-          favs.savedPets.splice(idx, 1);
-          localStorage.setItem('favoritePets', JSON.stringify(favs.savedPets));
+      for(var i = 0; i < favs.savedPets.length; i ++){
+        if(removeVal === favs.savedPets[i].id.$t){
+          favs.savedPets.splice(i, 1);
         }
-      });
+        localStorage.setItem('favoritePets', JSON.stringify(favs.savedPets));
+        location.reload();
+      }
     });
   };
-
-
-
-
-//left to do:
-// need to make sure that a user can view a saved pet's details.
-
-// need to wire up the remove button
-//remove should be just a 'this' then pop (or whatever it is to remove an item from an array) from the favoritePets.all.
-//also have to then pass the new favoritePets.all to local storage so that when the page loads next time, it will reflect the removed pet.
 
   favs.viewDetails = function(pet) {
     favs.savedPets.forEach(function(elem) {
@@ -120,7 +107,7 @@
     favs.randomSelectedPet();
     favs.searchSelectedPet();
     favs.displaySavedPets();
-
+    console.log('favs111', favs.savedPets);
     favs.removeFavorite();
 
     favs.viewDetails();

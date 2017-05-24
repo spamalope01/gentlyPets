@@ -1,32 +1,75 @@
 /* The Modal (background) */
 .randDetailModal {
     display: none; /* Hidden by default */
+    /*text-align: center;*/
 }
 
 .randModal-show {
+  position: absolute;
+  margin: 10%;
+  top: 0;
+  left: 50%;
+  /*display: flex;*/
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 10; /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
+  width: 90%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,.86);
+  /*padding: 1%;*/
 }
 
+.innerModal{
+  background: grey;
+}
 /* Modal Content/Box */
 .modal-content {
-    position: relative;
+  display: flex;
+    /*position: relative;*/
     /*background-color: #fefefe;*/
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    /*margin: 15% auto; /* 15% from the top and centered */*/
+    /*padding: 20px;*/
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    /*width: 80%; /* Could be more or less, depending on screen size */*/
     font-family: 'Ek Mukta', sans-serif;
     font-size: 1em;
 }
+
+.detailName {
+  display: block;
+  /*float: left;*/
+}
+
+.basicInfo{
+  /*justify-content: center;*/
+  display: inline-block;
+  /*float: right;*/
+}
+
+.contactDetails {
+  color: white;
+}
+.descript{
+  width: 70%;
+}
+
+.detailName{
+  font-size: 50px;
+  display: inline-block;
+}
+
+.detailContact {
+  display: inline-block;
+}
+
+.detailBottom {
+  width: 50%;
+}
+
 
 #randomDetails {
   color: white;

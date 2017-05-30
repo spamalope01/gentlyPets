@@ -54,7 +54,10 @@
   color: white;
 }
 .descript{
-  width: 70%;
+  position: absolute;
+  top: 31%;
+  left: 35%;
+  width: 45%;
 }
 
 .detailName{

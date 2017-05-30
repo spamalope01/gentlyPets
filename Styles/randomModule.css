@@ -6,35 +6,35 @@
 
 .randModal-show {
   position: absolute;
-  margin: 10%;
+  margin: 0;
   top: 0;
-  left: 50%;
+  left: 0;
   /*display: flex;*/
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 10; /* Sit on top */
   left: 0;
   top: 0;
-  width: 90%; /* Full width */
+  width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,.86);
-  /*padding: 1%;*/
+  padding: 1%;
 }
 
-.innerModal{
+/*.innerModal{
   background: grey;
-}
+}*/
 /* Modal Content/Box */
 .modal-content {
   display: flex;
-    /*position: relative;*/
-    /*background-color: #fefefe;*/
-    /*margin: 15% auto; /* 15% from the top and centered */*/
-    /*padding: 20px;*/
+    position: relative;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
     border: 1px solid #888;
-    /*width: 80%; /* Could be more or less, depending on screen size */*/
+    width: 80%; /* Could be more or less, depending on screen size */
     font-family: 'Ek Mukta', sans-serif;
     font-size: 1em;
 }

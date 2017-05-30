@@ -43,10 +43,25 @@ text-transform: uppercase;
 .resourceGroup {
   margin: 3% 2%;
   width: 20%;
-  border-radius: 5px;
-  background-color: #e8e8ee;
+  border-radius: 50%;
+  /*background-color: #e8e8ee;*/
+  background:rgba(0,0,0,0.65);
   text-align: center;
   padding: 2px 16px;
+}
+
+.resourceContent{
+  text-align: left;
+  list-style: none;
+  padding-bottom: 10%;
+}
+
+.resourceContent a {
+  color: white;
+}
+
+.resourceGroup h2 {
+  padding-top: 5%;
 }
 
 .matchesTile {

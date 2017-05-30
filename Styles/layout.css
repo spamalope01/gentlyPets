@@ -159,15 +159,15 @@ text-transform: uppercase;
 }
 
 
-
+/*
 #random a {
   position: absolute;
   margin-right: 1%;
   bottom: 0;
   right: 0;
-}
+}*/
 
-#backTop {
+.backTop {
   position: absolute;
   margin-right: 1%;
   bottom: 0;

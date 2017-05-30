@@ -76,7 +76,7 @@
             <li><p class='maven ivory-text'>Age: {{age.$t}}</p></li>
           </ul>
         </article>
-        <a href="mailto:{{contact.email.$t}}" class='contactDetails maven ivory-text '>Email Contact: <span class='underline'>{{contact.email.$t}} </span></a>
+        <!-- <a href="mailto:{{contact.email.$t}}" class='contactDetails maven ivory-text '>Email Contact: <span class='underline'>{{contact.email.$t}} </span></a> -->
         <article id="detailBottom" class='detailBottom'>
           <p class='descript maven ivory-text'>{{description.$t}}</p>
           <ul id="detailContact">
@@ -89,6 +89,7 @@
             <li class='maven ivory-text'>Contact #: {{contact.phone.$t}}</li>
             <li class='maven ivory-text'>State: {{contact.state.$t}}</li>
             <li class='maven ivory-text'>Zip: {{contact.zip.$t}}</li>
+            <li class='maven ivory-text'>Email Contact: {{contact.email.$t}}</li>
           </ul>
         </article>
       </section>
@@ -185,23 +186,22 @@
 
         <!--random details modal-->
         <div id="randomModal" class="randDetailModal">
-          <div class="innerModal">
+          <!-- <div class="innerModal"> -->
             <div class="randModalContent">
               <button class ="randCloseModal" type="button" name="closeModal">CLOSE</button>
-              <p>modal text here</p>
               <section id="randomDetails">
 
               </section>
             </div>
-          </div>
+          <!-- </div> -->
         </div>
-        <a href="#top" class="smoothScroll">Back to top</a>
+        <a href="#top" class="backTop smoothScroll">Back to top</a>
       </section>
 
 
 <!--this is where the resources will display  -->
       <section id="resources" class="resourceSection">
-        <a href="#top" id="backTop" class="smoothScroll">Back to top</a>
+        <a href="#top" class="backTop smoothScroll">Back to top</a>
         <div class="resourceTransparent">
 
           <h1 class="resourceHeader">Resources to Help You With Your New Adoption</h1>
@@ -269,7 +269,7 @@
 
 
 
-        <a href="#top" class="smoothScroll">Back to top</a>
+        <a href="#top" class="backTop smoothScroll">Back to top</a>
       </section>
 
       <!-- <section id="vet" class="vetFinder">

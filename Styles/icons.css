@@ -38,6 +38,9 @@
 .icon-power:before {
 	content: "\e90a";
 }
+/*.icon-cross:before {
+    content: "\ea0f";
+}*/
 .icon-menu:after {
 	content: "\e902";
 }

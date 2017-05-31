@@ -63,35 +63,26 @@
       <!-- Adding handlebars for animal detail view  -->
     <script id="petDetails" type="text/x-handlebars-template">
       <section id={{id.$t}}>
-        <article id="detailTop" class='detailTop'>
+        <section id="detailTop" class='detailTop'>
           <h2 class='detailName maven ivory-text'>{{name.$t}}</h2>
           <div id="allPetPics" class="petPicDetail">
             <img src={{{media.photos.photo.2.$t}}}/>
           </div>
-          <ul id="basicInfo" class='basicInfo'>
-            <li><p class='maven ivory-text'>Animal: {{animal.$t}}</p></li>
-            <li><p class='maven ivory-text'>Breed: {{breeds.breed.$t}}</p></li>
-            <li><p class='maven ivory-text'>Mix: {{mix.$t}}</p></li>
-            <li><p class='maven ivory-text'>Size: {{size.$t}}</p></li>
-            <li><p class='maven ivory-text'>Age: {{age.$t}}</p></li>
-          </ul>
-        </article>
-        <!-- <a href="mailto:{{contact.email.$t}}" class='contactDetails maven ivory-text '>Email Contact: <span class='underline'>{{contact.email.$t}} </span></a> -->
-        <article id="detailBottom" class='detailBottom'>
           <p class='descript maven ivory-text'>{{description.$t}}</p>
-          <ul id="detailContact">
-            <li class='maven ivory-text'>Shelter Id: {{shelterId.$t}}</li>
-            <li class='maven ivory-text'>Pet Id: {{id.$t}}</li>
-            <li class='maven ivory-text'>Last Updated: {{lastUpdate.$t}}</li>
-            <li class='maven ivory-text'>{{contact.address1.$t}}</li>
-            <li class='maven ivory-text'>{{contact.address2.$t}}</li>
-            <li class='maven ivory-text'>City: {{contact.city.$t}}</li>
-            <li class='maven ivory-text'>Contact #: {{contact.phone.$t}}</li>
-            <li class='maven ivory-text'>State: {{contact.state.$t}}</li>
-            <li class='maven ivory-text'>Zip: {{contact.zip.$t}}</li>
-            <li class='maven ivory-text'>Email Contact: {{contact.email.$t}}</li>
+          <ul class='basicInfo'>
+            <li class='bullet maven ivory-text'>Animal: {{animal.$t}}</li>
+            <li class='bullet maven ivory-text'>Breed: {{breeds.breed.$t}}</li>
+            <li class='bullet maven ivory-text'>Mix: {{mix.$t}}</li>
+            <li class='bullet maven ivory-text'>Size: {{size.$t}}</li>
+            <li class='bullet maven ivory-text'>Age: {{age.$t}}</li>
+            <li class='bullet maven ivory-text'>Email Contact: {{contact.email.$t}}</li>
+            <li class='bullet maven ivory-text'>Address: {{contact.address1.$t}}</li>
+            <li class='maven ivory-text'>{{contact.city.$t}}, {{contact.state.$t}}, {{contact.zip.$t}}</li>
+            <li class='bullet maven ivory-text'>Contact #: {{contact.phone.$t}}</li>
+            <li class='bullet maven ivory-text'>Pet Id: {{id.$t}}</li>
+            <li class='bullet maven ivory-text'>Last Updated: {{lastUpdate.$t}}</li>
           </ul>
-        </article>
+        </section>
       </section>
     </script>
 
@@ -107,7 +98,7 @@
             <li><a href="#random" class="smoothScroll">Random Pet</a></li>
             <li><a href="#resources" class="smoothScroll">Resources</a></li>
             <li><a href="#favorites" class="smoothScroll">Favorites</a></li>
-            <li><a href="#vet" class="smoothScroll">Find a Vet</a></li>
+            <!-- <li><a href="#vet" class="smoothScroll">Find a Vet</a></li> -->
           </ul>
           <button type="button" class="redoSearch btn" id="searchAgain" name="reSearch">Search Again</button>
         </nav>
@@ -186,14 +177,12 @@
 
         <!--random details modal-->
         <div id="randomModal" class="randDetailModal">
-          <!-- <div class="innerModal"> -->
             <div class="randModalContent">
-              <button class ="randCloseModal" type="button" name="closeModal">CLOSE</button>
+              <button class ="icon-cross" type="button" name="closeModal"></button>
               <section id="randomDetails">
 
               </section>
             </div>
-          <!-- </div> -->
         </div>
         <a href="#top" class="backTop smoothScroll">Back to top</a>
       </section>
@@ -256,10 +245,9 @@
 
 
         <!--favorites details modal-->
-        <div id="faveModal" class="favoritesModal">
+        <div id="randModal" class="randDetailModal">
           <div class="modalContent">
-            <button class ="favsCloseModal" type="button" name="closeModal">CLOSE</button>
-            <p>modal text here</p>
+            <button class ="icon-cross closeFaves" type="button" name="closeModal"></button>
             <section id="faveDetails">
 
             </section>

@@ -34,7 +34,7 @@
       randomPets.viewDetails(randomPets.randomSpecs);
     });
   };
-  $('.randCloseModal').off().on('click', function() {
+  $('.icon-cross').off().on('click', function() {
     $('div.randDetailModal').toggleClass('randModal-show');
     $('#randomDetails').empty();
   });

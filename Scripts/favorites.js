@@ -53,7 +53,7 @@
       $('.faveModalBtn').off().on('click', function() {
         console.log('hit the interested fave button');
         favs.favSpecs = $(this).val();
-        $('div.favoritesModal').toggleClass('favModal-show');
+        $('.randDetailModal').toggleClass('randModal-show');
         favs.viewDetails(favs.favSpecs);
       });
     } else {
@@ -75,6 +75,7 @@
     });
   };
 
+
   favs.viewDetails = function(pet) {
     favs.savedPets.forEach(function(elem) {
       if(pet === elem.id.$t){
@@ -90,9 +91,11 @@
 
 
   favs.closeModal = function() {
-    $('.favsCloseModal').off().on('click', function() {
-      $('div.favoritesModal').toggleClass('favModal-show');
+    $('.closeFaves').off().on('click', function() {
+      console.log('clicked close on fave details');
+      $('div.randDetailModal').toggleClass('randModal-show');
       $('#faveDetails').empty();
+      console.log('emptied the stuff');
     });
   };
 

@@ -198,7 +198,8 @@ $(window).scroll(function() {
           return pets.isSexPet(pet);
         });
         pets.noMatch();
-        $('#matches').show();
+        $('.matchSection').toggleClass('matchSection-show');
+        // $('#matches').show();
         pets.displayMatches();
         console.log('called displayMatches');
       } else {
@@ -214,6 +215,7 @@ $(window).scroll(function() {
       var html = template(e);
       $('#matches').append(html);
     });
+    $('.matchSection').toggleClass('matchSection-show');
     $('.randomHeader').hide();
     $('.searchSection').hide();
     $('#searchAgain').show();
@@ -245,6 +247,7 @@ $(window).scroll(function() {
       $('#searchAgain').hide();
       $('.searchContainer').show();
       $('#matches').hide();
+      $('.matchSection').toggleClass('matchSection');
       $('#random').show();
       $('.randomHeader').show();
       $('.sexRadio').prop('checked', false);
@@ -254,8 +257,6 @@ $(window).scroll(function() {
       $('#zipFind').attr('value', '');
       pets.all = [];
       pets.filtered = [];
-      console.log('all', pets.all);
-      console.log('filtered', pets.filtered);
     });
   };
 

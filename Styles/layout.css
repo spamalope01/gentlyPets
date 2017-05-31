@@ -154,18 +154,10 @@ text-transform: uppercase;
     border-radius: .25rem;
 }
 
-#vet {
+/*#vet {
   text-align: center;
-}
-
-
-/*
-#random a {
-  position: absolute;
-  margin-right: 1%;
-  bottom: 0;
-  right: 0;
 }*/
+
 
 .backTop {
   position: absolute;

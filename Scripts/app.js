@@ -198,8 +198,6 @@ $(window).scroll(function() {
           return pets.isSexPet(pet);
         });
         pets.noMatch();
-        $('.matchSection').toggleClass('matchSection-show');
-        // $('#matches').show();
         pets.displayMatches();
         console.log('called displayMatches');
       } else {
@@ -215,7 +213,7 @@ $(window).scroll(function() {
       var html = template(e);
       $('#matches').append(html);
     });
-    $('.matchSection').toggleClass('matchSection-show');
+    $('#matches').toggleClass('matchShow');
     $('.randomHeader').hide();
     $('.searchSection').hide();
     $('#searchAgain').show();
@@ -244,10 +242,11 @@ $(window).scroll(function() {
 
   pets.searchAgain = function() {
     $('.redoSearch').off().on('click', function(){
+      pets.all = [];
+      pets.filtered = [];
+      $('#matches').empty().toggleClass('matchShow');
       $('#searchAgain').hide();
       $('.searchContainer').show();
-      $('#matches').hide();
-      $('.matchSection').toggleClass('matchSection');
       $('#random').show();
       $('.randomHeader').show();
       $('.sexRadio').prop('checked', false);
@@ -255,8 +254,6 @@ $(window).scroll(function() {
       $('.pareSelect').prop('selectedIndex', 0);
       $('.sexRadio').prop('checked', false);
       $('#zipFind').attr('value', '');
-      pets.all = [];
-      pets.filtered = [];
     });
   };
 

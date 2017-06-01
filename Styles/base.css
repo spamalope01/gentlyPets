@@ -85,7 +85,7 @@ nav {
 }
 
 
-.matchSection-show {
+.matchShow {
   display: flex;
   flex-flow: row;
   height: 100%;

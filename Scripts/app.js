@@ -198,11 +198,7 @@ $(window).scroll(function() {
           return pets.isSexPet(pet);
         });
         pets.noMatch();
-        // $('#matches').show();
         pets.displayMatches();
-        $('#matches').addClass('matchShow');
-        $('#matches').css('display');
-        $('#matches').removeClass('matchSection');
         console.log('called displayMatches');
       } else {
         console.log('you have to pick something');
@@ -217,6 +213,7 @@ $(window).scroll(function() {
       var html = template(e);
       $('#matches').append(html);
     });
+    $('#matches').toggleClass('matchShow');
     $('.randomHeader').hide();
     $('.searchSection').hide();
     $('#searchAgain').show();
@@ -245,12 +242,11 @@ $(window).scroll(function() {
 
   pets.searchAgain = function() {
     $('.redoSearch').off().on('click', function(){
-      $('#matches').removeClass('matchShow');
-      $('#matches').addClass('matchSection');
+      pets.all = [];
+      pets.filtered = [];
+      $('#matches').empty().toggleClass('matchShow');
       $('#searchAgain').hide();
       $('.searchContainer').show();
-      $('#matches').hide();
-      // removeClass('matchShow');
       $('#random').show();
       $('.randomHeader').show();
       $('.sexRadio').prop('checked', false);
@@ -258,8 +254,6 @@ $(window).scroll(function() {
       $('.pareSelect').prop('selectedIndex', 0);
       $('.sexRadio').prop('checked', false);
       $('#zipFind').attr('value', '');
-      pets.all = [];
-      pets.filtered = [];
     });
   };
 

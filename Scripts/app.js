@@ -92,8 +92,8 @@ $(window).scroll(function() {
 
 
   pets.requestPets = function(zip, animal) {
-    console.log('zip is' + zip);
-    console.log('animal is' + animal);
+    console.log('zip is ' + zip);
+    console.log('animal is ' + animal);
     $.getJSON('https://api.petfinder.com/pet.find?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&location=' + zip + '&animal=' + animal + '&count=100&output=full&callback=?')
   .done(function(petApiData) {
     pets.all = [];
@@ -107,7 +107,6 @@ $(window).scroll(function() {
   pets.animal_wanted_click = function() {
     console.log('animal_wanted_click is live');
     $('#searchForm').off().on('click', '.searchPetButton', function(e) {
-      console.log('clicked the pet button');
       pets.$petWanted = $(this).val();
       console.log(pets.$petWanted);
       $('#noMatches').text('');
@@ -180,9 +179,7 @@ $(window).scroll(function() {
 
 
   pets.pareDown = function() {
-    console.log('running pareDown');
     $('#pareForm').off().on('click', '#showButton', function(){
-      console.log('clicked show me');
       if (pets.$seniorPet || pets.$specialPet) {
         pets.filtered = pets.all
         .filter(function(pet) {
@@ -199,9 +196,8 @@ $(window).scroll(function() {
         });
         pets.noMatch();
         pets.displayMatches();
-        console.log('called displayMatches');
       } else {
-        console.log('you have to pick something');
+        alert('you have to pick something');
       }
     });
   };
@@ -268,7 +264,6 @@ $(window).scroll(function() {
     pets.howBig();
     pets.assignedGender();
     pets.pareDown();
-    // pets.displayRandomDetails();
   });
 
   module.pets = pets;

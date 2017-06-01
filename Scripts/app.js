@@ -198,9 +198,11 @@ $(window).scroll(function() {
           return pets.isSexPet(pet);
         });
         pets.noMatch();
-        $('.matchSection').toggleClass('matchSection-show');
         // $('#matches').show();
         pets.displayMatches();
+        $('#matches').addClass('matchShow');
+        $('#matches').css('display');
+        $('#matches').removeClass('matchSection');
         console.log('called displayMatches');
       } else {
         console.log('you have to pick something');
@@ -215,7 +217,6 @@ $(window).scroll(function() {
       var html = template(e);
       $('#matches').append(html);
     });
-    $('.matchSection').toggleClass('matchSection-show');
     $('.randomHeader').hide();
     $('.searchSection').hide();
     $('#searchAgain').show();
@@ -244,10 +245,12 @@ $(window).scroll(function() {
 
   pets.searchAgain = function() {
     $('.redoSearch').off().on('click', function(){
+      $('#matches').removeClass('matchShow');
+      $('#matches').addClass('matchSection');
       $('#searchAgain').hide();
       $('.searchContainer').show();
       $('#matches').hide();
-      $('.matchSection').toggleClass('matchSection');
+      // removeClass('matchShow');
       $('#random').show();
       $('.randomHeader').show();
       $('.sexRadio').prop('checked', false);

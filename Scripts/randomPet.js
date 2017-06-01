@@ -43,7 +43,6 @@
   randomPets.viewDetails = function(pet) {
     randomPets.all.forEach(function(elem) {
       if(pet === elem.id.$t){
-        console.log('pet is equal');
         var target = $('#petDetails').html();
         var skeleton = Handlebars.compile(target);
         var hyperText = skeleton(elem);

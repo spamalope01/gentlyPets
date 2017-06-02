@@ -6,9 +6,6 @@ body {
   background-size: cover;;
 }
 
-/*section {
-  /*overflow: auto;*/
-/*}*/
 
 nav {
   width: 100%;
@@ -65,6 +62,17 @@ nav {
   color: white;
   border: 1px solid white;
   width: 55em;
+  background:rgba(0,0,0,0.5);
+}
+
+.zeroMatches{
+  display: block;
+  margin: auto;
+  padding: 1%;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  width: auto;
   background:rgba(0,0,0,0.5);
 }
 

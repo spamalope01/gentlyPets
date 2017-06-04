@@ -1,29 +1,15 @@
-#Initial commit, creating the README.  This will be a personal project to showcase my portfolio.  
+## **Documentation**  
 
 
-## The pupose of this site is to allow users to search and select a senior or special needs pet for adoption.
+### PURPOSE
+ The pupose of this site is to allow users to search and select a senior or special needs pet for adoption.
 
-#API -
+###API -
 This application is connected to the PetFinder.com API.  It will pull back 100 pets at a time matching the search criteria of the user's zip code.
 
 
 
-# DEVolunteer<br>==========
 
-> DEVolunteer is a forum that aims to foster mutually beneficial partnerships between nonprofits and developers.
-
-## Why Sign up?
-
-
-- **As a developer**, you can choose to work on projects that missions that resonate with you. Your volunteer profile will be visible to the public (if you choose), and you will receive credit for projects that both completed and undergoing development.
-
-- **As a nonprofit**, you can find the right developer to fit your software needs. You will have the capability to browse and filter through developer profiles until you have found the person that is right for your mission.
-
-## The Layout
-#### The Schemas:
-![userschema](https://cloud.githubusercontent.com/assets/18372172/24781591/8f250f02-1af5-11e7-9161-ec222dad709f.png)
-#### The Process:
-![devolunteer diagram](https://cloud.githubusercontent.com/assets/18372172/24822039/0cc15e50-1ba7-11e7-8d58-ef3e63fd346b.png)
 
 
 <!-- ## **Documentation**

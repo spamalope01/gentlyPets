@@ -38,11 +38,15 @@
 .icon-power:before {
 	content: "\e90a";
 }
-/*.icon-cross:before {
+/*.icon-menu:before {
     content: "\ea0f";
 }*/
 .icon-menu:after {
 	content: "\e902";
+	right: 1%;
+	top: 1%;
+	position: absolute;
+	font-size: 3em;
 }
 .icon-link:before {
 	content: "\e903";

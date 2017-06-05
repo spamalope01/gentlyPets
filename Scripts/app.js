@@ -253,6 +253,14 @@ $(window).scroll(function() {
     });
   };
 
+  // pets.openNav = function() {
+  //   document.getElementById("icon-menu").style.width = "100%";
+  // };
+  //
+  // pets.closeNav = function() {
+  //   document.getElementById("closeOverlay").style.width = "0%";
+  // };
+
   $(document).ready(function() {
     pets.animal_wanted_click();
     $('.searchSection').hide();

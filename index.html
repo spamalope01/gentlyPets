@@ -89,20 +89,44 @@
         <nav class="stickyNav">
           <h1>Gently Used Pets</h1>
           <ul class="globalNav">
-            <li><a href="#search" class="smoothScroll">Search</a></li>
-            <li><a href="#random" class="smoothScroll">Random Pet</a></li>
-            <li><a href="#resources" class="smoothScroll">Resources</a></li>
-            <li><a href="#favorites" class="smoothScroll">Favorites</a></li>
+            <li><a href="#search" class="desktopNav smoothScroll">Search</a></li>
+            <li><a href="#random" class="desktopNav smoothScroll">Random Pet</a></li>
+            <li><a href="#resources" class="desktopNav smoothScroll">Resources</a></li>
+            <li><a href="#favorites" class="desktopNav smoothScroll">Favorites</a></li>
           </ul>
-          <div class="icon-menu">
-            <ul class="overlay">
-              <li><a href="#search" class="smoothScroll">Search</a></li>
-              <li><a href="#random" class="smoothScroll">Random Pet</a></li>
-              <li><a href="#resources" class="smoothScroll">Resources</a></li>
-              <li><a href="#favorites" class="smoothScroll">Favorites</a></li>
-            </ul>
-            <!-- <button class ="icon-menu closeOverlay" type="button" name="closeOverlay"></button> -->
+
+          <!-- The overlay -->
+          <div id="responsiveNav" class="overlay">
+
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closeNav">&times;</a>
+
+            <!-- Overlay content -->
+            <div class="mobileNavContent">
+              <a href="#search" class="smoothScroll">Search</a>
+              <a href="#random" class="smoothScroll">Random Pet</a>
+              <a href="#resources" class="smoothScroll">Resources</a>
+              <a href="#favorites" class="smoothScroll">Favorite</a>
+            </div>
+
           </div>
+          <!-- open the mobile nav overlay -->
+          <button type="button" name="openMobileNav" class="openMobileNav">&#9776;</button>
+
+
+
+          <!-- <div class="overlay">
+          <!-- close the mobile nav overlay -->
+          <!-- <a href="javascript:void(0)" class="closeNav">&times;</a> -->
+            <!-- <ul class="mobileNav"> -->
+              <!-- <li><a href="#search" class="mobileNavContent smoothScroll">Search</a></li> -->
+              <!-- <li><a href="#random" class="mobileNavContent smoothScroll">Random Pet</a></li>
+              <li><a href="#resources" class="mobileNavContent smoothScroll">Resources</a></li>
+              <li><a href="#favorites" class="mobileNavContent smoothScroll">Favorites</a></li> -->
+            <!-- </ul> -->
+            <!-- <span class="icon-menu">&#9776;</span> -->
+            <!-- <button class ="icon-menu closeOverlay" type="button" name="closeOverlay"></button> -->
+          <!-- </div> -->
           <button type="button" class="redoSearch btn" id="searchAgain" name="reSearch">Search Again</button>
         </nav>
     </header>

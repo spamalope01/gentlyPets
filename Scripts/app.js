@@ -253,20 +253,31 @@ $(window).scroll(function() {
     });
   };
 
-  // pets.openNav = function() {
-  //   document.getElementById("icon-menu").style.width = "100%";
-  // };
-  //
-  // pets.closeNav = function() {
-  //   document.getElementById("closeOverlay").style.width = "0%";
-  // };
+  pets.openNav = function() {
+    console.log('open nav is running');
+    $('.openMobileNav').off().on('click', function(){
+      console.log('clicked the open button');
+      $('#responsiveNav').style.height = "100%";
+    });
+  };
+
+  pets.closeNav = function() {
+    console.log('close nav is running');
+    $('.closeNav').off().on('click', function(){
+      console.log('clicked the close button');
+      $('#responsiveNav').style.height = "0%";
+      // $('.overlay').hide();
+    });
+  };
 
   $(document).ready(function() {
+    pets.openNav();
+    pets.closeNav();
     pets.animal_wanted_click();
     $('.searchSection').hide();
     $('.searchContainer').show();
     $('#searchAgain').hide();
-    pets.equalHeights();
+    // pets.equalHeights();
     pets.searchClick();
     pets.snr_spl();
     pets.howBig();

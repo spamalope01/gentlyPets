@@ -4,8 +4,19 @@
 ### PURPOSE
  The pupose of this site is to allow users to search and select a senior or special needs pet for adoption.
 
-###API -
+### API -
 This application is connected to the PetFinder.com API.  It will pull back 100 pets at a time matching the search criteria of the user's zip code.
+
+### Filtering
+The user can filter the returned 100 pets based on more granular criteria such as size, age and if the pet has special needs or not.
+
+### Viewing Details
+The user can view the details of any pet returned from the filter function by selecting 'Interested' on that specific pet's tile.  This will open a modal displaying the greater details of the corresponding pet.  
+
+### Add to favorites
+The user can add any pet to his/her favorites by selecting 'Add to Favorites'.  This will save the pet in the user's local storage session and will remain there until the user removes said pet from favorites.
+
+
 
 
 

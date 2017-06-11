@@ -16,7 +16,8 @@ The user can view the details of any pet returned from the filter function by se
 ### Add to favorites
 The user can add any pet to his/her favorites by selecting 'Add to Favorites'.  This will save the pet in the user's local storage session and will remain there until the user removes said pet from favorites.
 
-
+### Random pets
+Upon page load/refresh, the site will pull in 8 randomly selected pets matching the criteria of Senior and/or Special Needs.  
 
 
 

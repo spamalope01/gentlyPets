@@ -109,7 +109,7 @@ nav {
 .resourceSection {
   position: relative;
   background: url('../Images/seniorCatFloor.jpeg') no-repeat fixed;
-  background-size: 100%;
+  background-size: cover;
   margin-bottom: 2%;
   color: white;
   height: 50%;
@@ -136,7 +136,7 @@ nav {
 .btn {
   border-radius: .25rem;
   color: black;
-  height: 7.5%;
+  /*height: 7.5%;*/
   margin-bottom: 3%;
   background-color: #63D1F4;
   border-color: #63D1F4;

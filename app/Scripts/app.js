@@ -170,6 +170,7 @@ $(window).scroll(function() {
 
   pets.noMatch = function() {
     if(pets.filtered.length <= 0) {
+      $('.zeroMatches').show();
       $('#noMatches').text('Sorry there were no pets matching your criteria.  Please choose different options and search again.');
       $('#input-snr-cb').prop('checked', false);
       $('#input-spl-cb').prop('checked', false);
@@ -210,6 +211,7 @@ $(window).scroll(function() {
       $('#matches').append(html);
     });
     $('#matches').toggleClass('matchShow');
+    $('.zeroMatches').hide();
     $('.randomHeader').hide();
     $('.searchSection').hide();
     $('#searchAgain').show();

@@ -225,24 +225,24 @@ text-transform: uppercase;
 
   .stickyNav {
     /*display: flex;*/
-    z-index: 100;
+    /*z-index: 100;*/
     background-color: #000;
-    flex-direction: row;
+    /*flex-direction: row;*/
   }
 
   .globalNav {
     display: flex;
-    flex-direction: row;
+    /*flex-direction: row;*/
     justify-content: space-around;
     /*margin-top: 4%;*/
     list-style:none;
-    margin:0;
-    padding:0;
+    /*margin:0;
+    padding:0;*/
     /*text-align:center;*/
     color: white;
     width: 100%;
-    height: 6em;
-    background:rgba(0,0,0,0);
+    /*height: 6em;*/
+    /*background:rgba(0,0,0,0);*/
   }
 
   .globalNav li {
@@ -274,81 +274,51 @@ text-transform: uppercase;
     height: 100%;
   }
 
-  /*#search img {
-    height: 100%;
-  }*/
-}
-    /*.mobileNav {
-      list-style: none;
-      margin:0;
-      padding:0;
-      text-align:center;
-      color: white;
-      width: auto;
-      height: 6em;
-      background:rgba(0,0,0,0);
+  .initialFinds {
+    text-align: center;
+  }
 
-      background-color: #333;
-      overflow: hidden;
-      text-align: center;
-    }*/
+  .filterResultsWrapper p {
+    text-align: center;
+  }
 
-/*.openMobileNav {
-  z-index: 4;
-}*/
+  .pareSelect {
+    margin-top: 3%;
+  }
 
-
-    /* The Overlay (background) */
-/*.overlay {*/
-     /*Height & width depends on how you want to reveal the overlay (see JS below) */
-    /*height: 100%;*/
-    /*width: 100%;*/
-    /*position: fixed; /* Stay in place */*/
-    /*z-index: 1; /* Sit on top */*/
-    /*left: 0;*/
-    /*top: 0;*/
-    /*top: -17px;*/
-    /*background-color: rgb(0,0,0); /* Black fallback color */*/
-    /*background-color: rgba(0,0,0, 0.9); /* Black w/opacity */*/
-    /*overflow-x: hidden; /* Disable horizontal scroll */*/
-    /*transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */*/
-/*}*/
-
-/* Position the content inside the overlay */
-/*.mobileNavContent {*/
-    /*position: relative;*/
-    /*top: 5%; /* 25% from the top */*/
-    /*width: 100%; /* 100% width */*/
-    /*text-align: center; /* Centered text/links */*/
-    /*margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */*/
-/*}*/
-
-/* The navigation links inside the overlay */
-/*.overlay a {*/
-    /*padding: 8px;*/
-    /*text-decoration: none;*/
-    /*font-size: 36px;*/
-    /*color: #818181;*/
-    /*display: block; /* Display block instead of inline */*/
-    /*transition: 0.3s; /* Transition effects on hover (color)*/*/
-  /*}*/
-
-/* Position the close button (top right corner) */
-
- /*.closeNav {
-   z-index: 2;
+  .redoSearch {
     position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-}*/
+    top: 1%;
+    right: 1%;
+    height: auto;
+  }
+  .matchShow {
+    flex-flow: column;
+  }
 
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-/*@media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-        font-size: 40px;
-        top: 15px;
-        right: 35px;
-    }
-}*/
+  .matchesTile, .matchesContainer {
+    margin-top: 1%;
+    width: 100%;
+    text-align: center;
+    background-color: #e8e8ee;
+
+  }
+
+  .matchesTile img {
+    width: 100%;
+  }
+
+  .matchesContainer {
+    /*background-color: #e8e8ee;*/
+    padding-top: 0;
+  }
+
+
+
+
+
+
+
+
+
+}

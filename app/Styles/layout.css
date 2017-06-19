@@ -218,31 +218,21 @@ text-transform: uppercase;
 
 
   /*Mobile View*/
-  @media only screen and (max-width: 690px){
+  @media only screen and (max-width: 829px){
   title {
     margin-left: 2%;
   }
 
   .stickyNav {
-    /*display: flex;*/
-    /*z-index: 100;*/
     background-color: #000;
-    /*flex-direction: row;*/
   }
 
   .globalNav {
     display: flex;
-    /*flex-direction: row;*/
     justify-content: space-around;
-    /*margin-top: 4%;*/
     list-style:none;
-    /*margin:0;
-    padding:0;*/
-    /*text-align:center;*/
     color: white;
     width: 100%;
-    /*height: 6em;*/
-    /*background:rgba(0,0,0,0);*/
   }
 
   .globalNav li {
@@ -320,13 +310,11 @@ text-transform: uppercase;
   }
 
   .matchesContainer {
-    /*background-color: #e8e8ee;*/
     padding-top: 0;
   }
 
   .resourceItems {
     flex-wrap: wrap;
-    /*background-size: cover;*/
   }
 
   .randomHeader, .resourceHeader {
@@ -361,7 +349,6 @@ text-transform: uppercase;
   .resourceContent a {
     color: #fff;
     text-decoration: none;
-    /*width: 8%;*/
   }
 
 

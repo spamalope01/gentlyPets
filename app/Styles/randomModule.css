@@ -69,6 +69,7 @@
   padding-bottom: 5%;
   padding-right: 10%;
   margin-right: 10%;
+  color: white;
 }
 
 .bullet {
@@ -80,10 +81,12 @@
   top: 20%;
   left: 35%;
   width: 45%;
+  color: white;
 }
 
 .detailName{
   font-size: 50px;
+  color: white;
   display: inline-block;
 }
 
@@ -98,4 +101,32 @@
     color: #aaa;
     font-size: 28px;
     font-weight: bold;
+}
+
+
+
+/*Mobile View*/
+@media only screen and (max-width: 829px){
+  img {
+    max-height: 10%;
+    width: auto;
+  }
+
+  .descript {
+    /*bottom: 25%;*/
+    left: 4%;
+    top: 106%;
+    /*float: left;*/
+    width: 30%;
+    /*overflow: hidden;*/
+    display: inline-block;
+    /*clear: both;*/
+  }
+
+  .basicInfo {
+    float: right;
+  }
+
+
+
 }

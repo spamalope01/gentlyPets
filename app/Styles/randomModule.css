@@ -113,14 +113,10 @@
   }
 
   .descript {
-    /*bottom: 25%;*/
     left: 4%;
-    top: 106%;
-    /*float: left;*/
+    top: 90%;
     width: 30%;
-    /*overflow: hidden;*/
     display: inline-block;
-    /*clear: both;*/
   }
 
   .basicInfo {

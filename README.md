@@ -10,7 +10,7 @@ But those animals need love and care just as much as a puppy does. Some have liv
 
 The Gently Used Pets project seeks to alleviate this by bringing those animals to the forefront of a pet adoption search.
 
-### API -
+### API
 This application is connected to the PetFinder.com API.  It will pull back 100 pets at a time matching the search criteria of the user's zip code.
 
 ### Filtering
